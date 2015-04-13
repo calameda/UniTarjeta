@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+}
+
+body {
+    background: #2c3338;
+    color: #808080;
+ 	font: 87.5%/1.5em 'Open Sans', sans-serif;
+  	
+}
+
+
+
+
+a {
+    color: #eee;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+input {
+   	border: none;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+#contacta {
+    text-align: center;
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+}
+
+
+
+
+/* ---------- contenido ---------- */
+
+.exterior{
+    margin: 10% auto;
+    padding: 1em;
+    width: 768px;
+	
+}
+
+#contenido {
+    width: 280px;
+    min-height: 100%;     
+    height: auto !important;     
+    height: 100%;     
+    margin: 0 auto 0px; 
+}
+
+#contenido form span {
+    background-color: #363b41;
+    border-radius: 3px 0px 0px 3px;
+    
+    display: block;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+}
+
+#contenido form input {
+    height: 50px;
+}
+
+#contenido form input[type="text"], input[type="password"] {
+    background-color: #3b4148;
+    border-radius: 0px 3px 3px 0px;
+    color: #808080;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 230px;
+    
+}
+
+#contenido form input[type="submit"] {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #0A8FFB;
+    color: #eee;
+    font-weight: bold;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    width: 280px;
+}
+
+#contenido form input[type="submit"]:hover {
+    background-color: #08589A;
+}
+
+#contenido > p {
+    text-align: center;
+}
+
+#contenido > p span {
+    padding-left: 5px;
+}
+
+
+/* ---------- contenido registro ---------- */
+
+
+.exteriorReg{
+	margin: 15% auto;
+   vertical-align: middle;
+    padding: 1em;
+	
+}
+
+
+.labelLetra {
+display:block;
+font-weight:bold;
+text-align:center;
+width:230px;
+
+}
+.labelNumero{
+display:block;
+font-weight:bold;
+text-align:center;
+width:60px;
+
+}
+.labelNombre{
+display:block;
+font-weight:bold;
+text-align:center;
+width:100x;
+
+}
+
+#contenidoRegistro form input[type="submit"] {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #0A8FFB;
+    color: #808080;
+    font-weight: bold;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    width: 230px;
+}
+
+#contenidoRegistro input[type="password"] {
+    background-color: #3b4148;
+    border-radius: 3px 3px 3px 3px;
+    color: #808080;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 230px;
+    height: 40px;
+}
+
+.textoLetra {
+    background-color: #3b4148;
+    border-radius: 3px 3px 3px 3px;
+    color: #808080;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 230px;
+    height: 40px;
+}
+
+.textoNumero {
+    background-color: #3b4148;
+    border-radius: 3px 3px 3px 3px;
+    color: #808080;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 50px;
+    height: 40px;
+}
+.textoNombre {
+    background-color: #3b4148;
+    border-radius: 3px 3px 3px 3px;
+    color: #808080;
+    margin-bottom: 1em;
+    padding: 0 16px;
+    width: 100px;
+    height: 40px;
+}
+#contenidoRegistro form input[type="submit"]:hover {
+    background-color: #08589A;
+   width: 230px;
+}
+
+
+
+img {
+    margin-top: 9px;
+}
+
