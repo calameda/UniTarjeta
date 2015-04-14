@@ -22,6 +22,7 @@ public interface UsuarioDAO {
 			String estampadora);
 	public void addAdmin(String email, String password, String nick);
 	public void addUsuario(int entidad, String email, String password, String nick);
+	public Estudiante getEstudianteDni(String dni);
 	public Usuario getUsuario(String nick);
 	public Estudiante getEstudiante(String nick);
 	public Estampadora getEstampadora(String nick);
@@ -34,6 +35,7 @@ public interface UsuarioDAO {
 	public void removeBanco(long id);
 	public void removeEstampadora(long id);
 	public void removeUniversidad(long id);
+	public void sendmail (String email, String msgBody);
 	
 	
 	

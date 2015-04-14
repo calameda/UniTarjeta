@@ -56,6 +56,30 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>RemoveUsuario</servlet-name>
 		<servlet-class>es.upm.dit.isst.unitarjeta.RemoveUsuarioServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>DoneUni</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.DoneUniServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RefuseUni</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RefuseUniServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DoneBanco</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.DoneBancoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RefuseBanco</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RefuseBancoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DoneEstam</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.DoneEstamServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RefuseEstam</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RefuseEstamServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>InicioUni</servlet-name>
@@ -101,6 +125,31 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>RemoveUsuario</servlet-name>
 		<url-pattern>/removeUsuario</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DoneUni</servlet-name>
+		<url-pattern>/doneUni</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RefuseUni</servlet-name>
+		<url-pattern>/refuseUni</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DoneBanco</servlet-name>
+		<url-pattern>/doneBanco</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RefuseBanco</servlet-name>
+		<url-pattern>/refuseBanco</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DoneEstam</servlet-name>
+		<url-pattern>/doneEstam</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RefuseEstam</servlet-name>
+		<url-pattern>/refuseEstam</url-pattern>
+	</servlet-mapping>
+	
 
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>

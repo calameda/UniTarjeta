@@ -36,8 +36,10 @@ public class BancoServlet extends HttpServlet {
 		Banco banco = (Banco) req.getSession().getAttribute("Banco");
 		String nombre = banco.getNombre();
 		solicitudes = dao.getSolicitudesUni(nombre);
+		int x =  (int) req.getSession().getAttribute("x");
 		
 		req.getSession().setAttribute("solicitudes", new ArrayList<Solicitud>(solicitudes));
+		req.getSession().setAttribute("x", x);
 		
 		RequestDispatcher view = req.getRequestDispatcher("inicio.jsp");
         view.forward(req, resp);

@@ -37,8 +37,10 @@ public class EstamServlet extends HttpServlet {
 		Estampadora estam = (Estampadora) req.getSession().getAttribute("Estampadora");
 		String nombre = estam.getNombre();
 		solicitudes = dao.getSolicitudesUni(nombre);
+		int x =  (int) req.getSession().getAttribute("x");
 		
 		req.getSession().setAttribute("solicitudes", new ArrayList<Solicitud>(solicitudes));
+		req.getSession().setAttribute("x", x);
 		
 		RequestDispatcher view = req.getRequestDispatcher("inicio.jsp");
         view.forward(req, resp);

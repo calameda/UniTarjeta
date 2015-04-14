@@ -37,7 +37,7 @@ public class CreateUniServlet extends HttpServlet {
 		dao.addUniversidad(email, password, nick, nombre, banco, direccionUni);
 		dao.addUsuario(entidad, email, password, nick);
 		
-		resp.sendRedirect("/");
+		resp.sendRedirect("admin.jsp");
 	}
 
 	public String checkNull(String s) {

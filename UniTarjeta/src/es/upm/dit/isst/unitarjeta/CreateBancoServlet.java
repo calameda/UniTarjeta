@@ -2,14 +2,17 @@ package es.upm.dit.isst.unitarjeta;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Banco;
 
-public class CreateBancoServlet {
+
+public class CreateBancoServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		System.out.println("Creating new Banco ");

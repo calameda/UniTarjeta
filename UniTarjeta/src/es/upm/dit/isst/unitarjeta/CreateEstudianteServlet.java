@@ -59,7 +59,8 @@ public class CreateEstudianteServlet extends HttpServlet {
 				universidad);
 		dao.addUsuario(entidad, email, password,nick);
 		
-		sendmail(email,nick,password);
+		String msg="User: " + nick + " Contraseña: " + password;
+		dao.sendmail(email,msg);
 		
 		if (a==0){
 			resp.sendRedirect("admin.jsp");
@@ -81,25 +82,10 @@ public class CreateEstudianteServlet extends HttpServlet {
 		}
 		return s;
 	}
-	private void sendmail (String email, String nick, String password){
-		
-		try{
-			  String msgBody="User: " + nick + " Contraseña: " + password;
-			 
-			Properties props = new Properties();
-			Session session = Session.getDefaultInstance(props, null);
-			Message msg = new MimeMessage(session);
-		
-			 
-			msg.setFrom(new InternetAddress("unitarjetainfo@gmail.com"));
-			msg.addRecipient(Message.RecipientType.TO,new InternetAddress(email));
-			msg.setSubject("Aviso – Confirmación registro");
-			msg.setText(msgBody);
-			Transport.send(msg);
+	
 			
-		} catch (Exception e){
-			    e.printStackTrace();
-		}
+	
+			 
+			
 			    
-	}
-} 
+}

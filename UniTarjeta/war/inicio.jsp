@@ -38,14 +38,40 @@
 			</tr>
 	
 			<c:forEach items="${solicitudes}" var="solicitud">
+				
 				<tr>
 					<td><c:out value="${solicitud.solicitante}" /></td>
 					<td><c:out value="${solicitud.dni}" /></td>
-					<!-- <td><a class="done"
-						href="<c:url value="/done?id=${solicitud.id}" />">Si</a></td>
+					
+					<c:if test="${x == 2}"> 
+					
 					<td><a class="done"
-						href="<c:url value="/done?id=${solicitud.id}" />">No</a></td>
-					-->
+						href="<c:url value="/doneUni?id=${solicitud.id}" />">Si</a></td>
+					<td><a class="done"
+						href="<c:url value="/refuseUni?id=${solicitud.id}" />">No</a></td>
+					
+					</c:if> 
+					
+					<c:if test="${x == 3}"> 
+					
+					<td><a class="done"
+						href="<c:url value="/doneBanco?id=${solicitud.id}" />">Si</a></td>
+					<td><a class="done"
+						href="<c:url value="/refuseBanco?id=${solicitud.id}" />">No</a></td>
+					
+					</c:if> 
+					
+					<c:if test="${x == 4}"> 
+					
+					<td><a class="done"
+						href="<c:url value="/doneEstam?id=${solicitud.id}" />">Si</a></td>
+					<td><a class="done"
+						href="<c:url value="/refuseEstam?id=${solicitud.id}" />">No</a></td>
+					
+					</c:if> 
+						
+					
+					
 				</tr>
 			
 			</c:forEach>

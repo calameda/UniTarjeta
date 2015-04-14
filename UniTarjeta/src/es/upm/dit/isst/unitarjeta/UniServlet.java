@@ -39,8 +39,10 @@ public class UniServlet extends HttpServlet {
 		Universidad uni = (Universidad) req.getSession().getAttribute("Universidad");
 		String nombre = uni.getNombre();
 		solicitudes = dao.getSolicitudesUni(nombre);
+		int x =  (int) req.getSession().getAttribute("x");
 		
 		req.getSession().setAttribute("solicitudes", new ArrayList<Solicitud>(solicitudes));
+		req.getSession().setAttribute("x", x);
 		
 		RequestDispatcher view = req.getRequestDispatcher("inicio.jsp");
         view.forward(req, resp);

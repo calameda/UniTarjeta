@@ -1,7 +1,13 @@
 package es.upm.dit.isst.unitarjeta.dao;
 
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -20,12 +26,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	private UsuarioDAOImpl() {
 	}
 
-	public static UsuarioDAOImpl getInstance(){
+	public static UsuarioDAOImpl getInstance() {
 		if (instance == null)
 			instance = new UsuarioDAOImpl();
 		return instance;
 	}
-
 
 	@Override
 	public List<Usuario> listUsuarios() {
@@ -40,132 +45,145 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public void addEstudiante(String email, String password, String nick,
 			String nombre, String dni, String direccion, boolean banco,
 			String universidad) {
-		
-			EntityManager em = EMFService.get().createEntityManager();
-			Estudiante usuario = new Estudiante(email, password, nick,
-					nombre, dni, direccion, banco,
-					universidad);
-			em.persist(usuario);
-			em.close();
+
+		EntityManager em = EMFService.get().createEntityManager();
+		Estudiante usuario = new Estudiante(email, password, nick, nombre, dni,
+				direccion, banco, universidad);
+		em.persist(usuario);
+		em.close();
 	}
 
-	
-	
 	@Override
-	public void addBanco(String email, String password, String nick, String nombre,
-			String estampadora)  {
-			EntityManager em = EMFService.get().createEntityManager();
-			Banco usuario = new Banco(email, password, nick, nombre,
-					estampadora);
-			em.persist(usuario);
-			em.close();
-		
+	public void addBanco(String email, String password, String nick,
+			String nombre, String estampadora) {
+		EntityManager em = EMFService.get().createEntityManager();
+		Banco usuario = new Banco(email, password, nick, nombre, estampadora);
+		em.persist(usuario);
+		em.close();
 
 	}
-	
+
 	@Override
 	public void addUniversidad(String email, String password, String nick,
 			String nombre, String banco, String direccionUni) {
-			EntityManager em = EMFService.get().createEntityManager();
-			Universidad usuario = new Universidad(email, password, nick, nombre, banco, direccionUni);
-			em.persist(usuario);
-			em.close();
+		EntityManager em = EMFService.get().createEntityManager();
+		Universidad usuario = new Universidad(email, password, nick, nombre,
+				banco, direccionUni);
+		em.persist(usuario);
+		em.close();
 	}
-	
+
 	@Override
-	public void addEstampadora(String email, String password, String nick, String nombre) {
-		
-			EntityManager em = EMFService.get().createEntityManager();
-			Estampadora usuario = new Estampadora(email, password, nick, nombre);
-			em.persist(usuario);
-			em.close();
-		
+	public void addEstampadora(String email, String password, String nick,
+			String nombre) {
+
+		EntityManager em = EMFService.get().createEntityManager();
+		Estampadora usuario = new Estampadora(email, password, nick, nombre);
+		em.persist(usuario);
+		em.close();
+
 	}
-	
+
 	@Override
 	public void addAdmin(String email, String password, String nick) {
-		
-			EntityManager em = EMFService.get().createEntityManager();
-			Admin usuario = new Admin(email, password, nick);
-			em.persist(usuario);
-			em.close();
-		
+
+		EntityManager em = EMFService.get().createEntityManager();
+		Admin usuario = new Admin(email, password, nick);
+		em.persist(usuario);
+		em.close();
+
 	}
-	
+
 	@Override
-	public void addUsuario(int entidad, String email, String password, String nick) {
-		
-			EntityManager em = EMFService.get().createEntityManager();
-			Usuario usuario = new Usuario(entidad, email, password, nick);
-			em.persist(usuario);
-			em.close();
-		
+	public void addUsuario(int entidad, String email, String password,
+			String nick) {
+
+		EntityManager em = EMFService.get().createEntityManager();
+		Usuario usuario = new Usuario(entidad, email, password, nick);
+		em.persist(usuario);
+		em.close();
+
 	}
-	
 
 	@Override
 	public Usuario getUsuario(String nick) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
 				.createQuery("select t from Usuario t where t.nick = :nick");
-		q.setParameter("nick",nick);
+		q.setParameter("nick", nick);
 		List<Usuario> usuarios = q.getResultList();
-		if(usuarios.isEmpty()) return null;
+		if (usuarios.isEmpty())
+			return null;
 		return usuarios.get(0);
 	}
-	
+
 	@Override
 	public Estudiante getEstudiante(String nick) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
 				.createQuery("select t from Estudiante t where t.nick = :nick");
-		q.setParameter("nick",nick);
+		q.setParameter("nick", nick);
 		List<Estudiante> usuarios = q.getResultList();
-		if(usuarios.isEmpty()) return null;
+		if (usuarios.isEmpty())
+			return null;
 		return usuarios.get(0);
 	}
-	
+
+	@Override
+	public Estudiante getEstudianteDni(String dni) {
+		EntityManager em = EMFService.get().createEntityManager();
+		Query q = em
+				.createQuery("select t from Estudiante t where t.dni = :dni");
+		q.setParameter("dni", dni);
+		List<Estudiante> usuarios = q.getResultList();
+		if (usuarios.isEmpty())
+			return null;
+		return usuarios.get(0);
+	}
+
 	@Override
 	public Universidad getUniversidad(String nick) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
 				.createQuery("select t from Universidad t where t.nick = :nick");
-		q.setParameter("nick",nick);
+		q.setParameter("nick", nick);
 		List<Universidad> usuarios = q.getResultList();
-		if(usuarios.isEmpty()) return null;
+		if (usuarios.isEmpty())
+			return null;
 		return usuarios.get(0);
 	}
-	
+
 	@Override
 	public Banco getBanco(String nick) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em
-				.createQuery("select t from Banco t where t.nick = :nick");
-		q.setParameter("nick",nick);
+		Query q = em.createQuery("select t from Banco t where t.nick = :nick");
+		q.setParameter("nick", nick);
 		List<Banco> usuarios = q.getResultList();
-		if(usuarios.isEmpty()) return null;
+		if (usuarios.isEmpty())
+			return null;
 		return usuarios.get(0);
 	}
-	
+
 	@Override
 	public Estampadora getEstampadora(String nick) {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
 				.createQuery("select t from Estampadora t where t.nick = :nick");
-		q.setParameter("nick",nick);
+		q.setParameter("nick", nick);
 		List<Estampadora> usuarios = q.getResultList();
-		if(usuarios.isEmpty()) return null;
+		if (usuarios.isEmpty())
+			return null;
 		return usuarios.get(0);
 	}
-	
+
 	@Override
 	public Admin getAdmin(String nick) {
 		EntityManager em = EMFService.get().createEntityManager();
-		Query q = em
-				.createQuery("select t from Admin t where t.nick = :nick");
-		q.setParameter("nick",nick);
+		Query q = em.createQuery("select t from Admin t where t.nick = :nick");
+		q.setParameter("nick", nick);
 		List<Admin> usuarios = q.getResultList();
-		if(usuarios.isEmpty()) return null;
+		if (usuarios.isEmpty())
+			return null;
 		return usuarios.get(0);
 	}
 
@@ -179,7 +197,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			em.close();
 		}
 	}
-	
+
 	@Override
 	public void removeEstudiante(long id) {
 		EntityManager em = EMFService.get().createEntityManager();
@@ -189,20 +207,20 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		} finally {
 			em.close();
 		}
-	
+
 	}
-	
+
 	@Override
 	public void removeAdmin(long id) {
 		EntityManager em = EMFService.get().createEntityManager();
 		try {
-			Admin admin= em.find(Admin.class, id);
+			Admin admin = em.find(Admin.class, id);
 			em.remove(admin);
 		} finally {
 			em.close();
 		}
 	}
-	
+
 	@Override
 	public void removeBanco(long id) {
 		EntityManager em = EMFService.get().createEntityManager();
@@ -213,7 +231,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			em.close();
 		}
 	}
-	
+
 	@Override
 	public void removeEstampadora(long id) {
 		EntityManager em = EMFService.get().createEntityManager();
@@ -224,7 +242,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			em.close();
 		}
 	}
-	
+
 	@Override
 	public void removeUniversidad(long id) {
 		EntityManager em = EMFService.get().createEntityManager();
@@ -235,6 +253,27 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			em.close();
 		}
 	}
-	
+
+	@Override
+	public void sendmail(String email, String msgBody) {
+
+		try {
+
+			Properties props = new Properties();
+			Session session = Session.getDefaultInstance(props, null);
+			Message msg = new MimeMessage(session);
+
+			msg.setFrom(new InternetAddress("pablo17993@gmail.com"));
+			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
+					email));
+			msg.setSubject("Aviso – Confirmación registro");
+			msg.setText(msgBody);
+			Transport.send(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }
