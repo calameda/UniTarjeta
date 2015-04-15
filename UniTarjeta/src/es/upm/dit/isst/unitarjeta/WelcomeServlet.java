@@ -4,11 +4,19 @@ package es.upm.dit.isst.unitarjeta;
 import java.io.IOException;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
+import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Universidad;
+import es.upm.dit.isst.unitarjeta.model.Usuario;
 
 
 
@@ -22,6 +30,13 @@ public class WelcomeServlet extends HttpServlet {
 		
 		req.getSession().setAttribute("x", 1);
 		
+		UsuarioDAO dao = UsuarioDAOImpl.getInstance();
+		
+		List<Universidad> universidades = new ArrayList<Universidad>();
+		
+		universidades = dao.listUniversidades();
+		
+		req.getSession().setAttribute("universidades", new ArrayList<Universidad>(universidades));
 		RequestDispatcher view = req.getRequestDispatcher("registerEstu.jsp");
         view.forward(req, resp);
 		

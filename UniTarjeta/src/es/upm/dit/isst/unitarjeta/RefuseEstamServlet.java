@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Solicitud;
 
 public class RefuseEstamServlet extends HttpServlet {
 		  private static final long serialVersionUID = 1L;
@@ -16,8 +17,10 @@ public class RefuseEstamServlet extends HttpServlet {
 		  throws IOException {
 		    String id = req.getParameter("id");
 		    SolicitudDAO dao = SolicitudDAOImpl.getInstance();
-		    dao.getSolicitud(id).setValidaBanco(false);
-		    resp.sendRedirect("/");
+		    Solicitud solicitud = dao.getSolicitud(id);
+		    solicitud.setValidaBanco(false);
+		    dao.actualizar(solicitud);
+		    resp.sendRedirect("/inicioEstam");
 		  }		
 } 
 

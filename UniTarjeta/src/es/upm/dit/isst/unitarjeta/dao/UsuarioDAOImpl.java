@@ -40,7 +40,15 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		List<Usuario> usuarios = q.getResultList();
 		return usuarios;
 	}
-
+	@Override
+	public List<Universidad> listUniversidades() {
+		EntityManager em = EMFService.get().createEntityManager();
+		// read the existing entries
+		Query q = em.createQuery("select m from Universidad m");
+		List<Universidad> universidades = q.getResultList();
+		return universidades;
+	}
+	
 	@Override
 	public void addEstudiante(String email, String password, String nick,
 			String nombre, String dni, String direccion, boolean banco,

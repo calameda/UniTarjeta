@@ -10,19 +10,25 @@ import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Solicitud;
 
 public class DoneBancoServlet extends HttpServlet {
 		  private static final long serialVersionUID = 1L;
 
 		  public void doGet(HttpServletRequest req, HttpServletResponse resp)
 		  throws IOException {
-		    String id = req.getParameter("id");
+		   
+			String id = req.getParameter("id");
 		    SolicitudDAO dao = SolicitudDAOImpl.getInstance();
-		    dao.getSolicitud(id).setValidaBanco(true);
-		    String banco = dao.getSolicitud(id).getBanco();
+		    Solicitud solicitud = dao.getSolicitud(id);
+		    solicitud.setValidaBanco(true);
+		    String banco = solicitud.getBanco();
 		    UsuarioDAO dao1 = UsuarioDAOImpl.getInstance();
 		    String estam = dao1.getBanco(banco).getEstampadora();
-		    dao.getSolicitud(id).setEstampadora(estam);
+		    solicitud.setEstampadora(estam);
+		    
+		    dao.actualizar(solicitud);
+		    
 		    resp.sendRedirect("/inicioBanco");
 		  }		
 } 

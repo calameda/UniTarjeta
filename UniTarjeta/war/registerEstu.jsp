@@ -116,13 +116,21 @@ $(function(){
 							</td>
 						</tr>
 						<tr>
+
+
+						<td>
+						<select name="universidad" id="nombre" class="textoLetra">
+								<option selected value="0">Elige una Universidad</option>
+								
+									<c:forEach items="${universidades}" var="uni">
+										<option value="${fn:length(usuarios)}">
+										<c:out value="${uni.nombre}" /></option>
+									</c:forEach>
 							
-							
-							<td>
-								<label for="universidad" class="labelLetra">Universidad</label>
-								<input class="textoLetra" type="text" name="universidad" id="nombre" value="Universidad" onBlur="if(this.value == '') this.value = 'Universidad'" onFocus="if(this.value == 'Universidad') this.value = ''" required>
-							</td>
-							<td>
+
+						</select>
+						</td>
+						<td>
 								<label for="banco" class="labelLetra">¿Quieres cuenta banco?</label>
 								<input class="textoLetra" type="text"  name="banco" id="nombre" value="Si" onBlur="if(this.value == '') this.value = 'Si'" onFocus="if(this.value == 'Si') this.value = ''" required> 
 							</td>

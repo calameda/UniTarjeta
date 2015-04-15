@@ -3,6 +3,7 @@ package es.upm.dit.isst.unitarjeta.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import es.upm.dit.isst.unitarjeta.model.Estudiante;
@@ -40,6 +41,8 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 				.createQuery("select t from Solicitud t");
 		q.setParameter("nick",nick);
 		List<Solicitud> solicitudes = q.getResultList();
+		
+		em.close();
 		if(solicitudes.isEmpty()) return null;
 		return solicitudes.get(0);
 		
@@ -64,6 +67,7 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 				.createQuery("select t from Solicitud t where t.id = :id");
 		q.setParameter("id",id);
 		List<Solicitud> solicitudes = q.getResultList();
+		em.close();
 		if(solicitudes.isEmpty()) return null;
 		return solicitudes.get(0);
 	}
@@ -105,6 +109,27 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 		} finally {
 			em.close();
 		}
+	}
+	
+	public void actualizar(Solicitud solicitud){
+		EntityManager em = EMFService.get().createEntityManager();
+		EntityTransaction ts = em.getTransaction();
+		
+		try{
+			ts.begin();
+			Solicitud x = em.find(Solicitud.class, solicitud.getId());
+			x = solicitud;
+			em.persist(x);
+			ts.commit();
+		} finally {
+			
+			if (ts.isActive()){
+				ts.rollback();
+			}
+			em.close();
+		}
+		
+
 	}
 
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Solicitud;
 
 public class DoneEstamServlet extends HttpServlet {
 		  private static final long serialVersionUID = 1L;
@@ -16,7 +17,9 @@ public class DoneEstamServlet extends HttpServlet {
 		  throws IOException {
 		    String id = req.getParameter("id");
 		    SolicitudDAO dao = SolicitudDAOImpl.getInstance();
-		    dao.getSolicitud(id).setFinished(true);
+		    Solicitud solicitud = dao.getSolicitud(id);
+		    solicitud.setFinished(true);
+		    dao.actualizar(solicitud);
 		    resp.sendRedirect("/inicioEstam");
 		  }		
 } 

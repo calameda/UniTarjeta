@@ -16,5 +16,6 @@ public interface SolicitudDAO {
 	public void add(Estudiante solicitante);
 	public Solicitud getSolicitud(long id);
 	public void remove (long id);
+	public void actualizar(Solicitud solicitud);
 	
 }

@@ -33,6 +33,6 @@ public class RefuseUniServlet extends HttpServlet {
 			String email = dao2.getEstudianteDni(dni).getEmail();
 			dao2.sendmail(email, msgBody);
 			
-		resp.sendRedirect("/");
+		resp.sendRedirect("/inicioUni");
 	}
 }
