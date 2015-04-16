@@ -10,7 +10,7 @@
 
 <html>
 	<head>
-		<title>Todos</title>
+		<title>Solicitudes</title>
 		<link rel="stylesheet" type="text/css" href="css/admin.css" />
 		<meta charset="utf-8">
 	</head>
@@ -26,24 +26,24 @@
 		</div>
 	
 		<div style="clear: both;" />
-		Hay <c:out value="${fn:length(usuarios)}" />
-		usuarios en el sistema.
+		Hay <c:out value="${fn:length(solicitudes)}" />
+		Solicitudes en el sistema.
 	
 		<table>
 			<tr>
-				<th>Entidad</th>
-				<th>Usuario</th>
-				<th>Email</th>
+				<th>Estudiante</th>
+				<th>Dni</th>
+				<th>Acabado</th>
 				<th>Borrar</th>
 			</tr>
 	
-			<c:forEach items="${usuarios}" var="usuario">
+			<c:forEach items="${solicitudes}" var="solicitud">
 				<tr>
-					<td><c:out value="${usuario.entidad}" /></td>
-					<td><c:out value="${usuario.nick}" /></td>
-					<td><c:out value="${usuario.email}" /></td>
+					<td><c:out value="${solicitud.solicitante}" /></td>
+					<td><c:out value="${solicitud.dni}" /></td>
+					<td><c:out value="${solicitud.finished}" /></td>
 					<td><a class="done"
-						href="<c:url value="/removeUsuario?nick=${usuario.nick}" />">Si</a></td>
+						href="<c:url value="/removeSolicitud?id=${solicitud.id}" />">Si</a></td>
 				</tr>
 			
 			</c:forEach>

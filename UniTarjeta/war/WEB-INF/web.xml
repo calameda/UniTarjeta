@@ -5,6 +5,10 @@
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<servlet>
+		<servlet-name>InicioEstu</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.EstuServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>InicioUni</servlet-name>
 		<servlet-class>es.upm.dit.isst.unitarjeta.UniServlet</servlet-class>
 	</servlet>
@@ -25,6 +29,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-class>es.upm.dit.isst.unitarjeta.WelcomeServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>RegisterUni</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RegisterUniServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RegisterBanco</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RegisterBancoServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
 		<servlet-name>CreateEstudiante</servlet-name>
 		<servlet-class>es.upm.dit.isst.unitarjeta.CreateEstudianteServlet</servlet-class>
 	</servlet>
@@ -43,10 +56,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet>
 		<servlet-name>CreateSolicitud</servlet-name>
 		<servlet-class>es.upm.dit.isst.unitarjeta.CreateSolicitudServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>RemoveSolicitud</servlet-name>
-		<servlet-class>es.upm.dit.isst.unitarjeta.RemoveSolicitudServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListUsuario</servlet-name>
@@ -80,6 +89,26 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>RefuseEstam</servlet-name>
 		<servlet-class>es.upm.dit.isst.unitarjeta.RefuseEstamServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Remember</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RememberServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListModificar</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.ListModificarServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListSolicitud</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.ListSolicitudServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RemoveSolicitud</servlet-name>
+		<servlet-class>es.upm.dit.isst.unitarjeta.RemoveSolicitudServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InicioEstu</servlet-name>
+		<url-pattern>/inicioEstu</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>InicioUni</servlet-name>
@@ -95,7 +124,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>RemoveSolicitud</servlet-name>
-		<url-pattern>/done</url-pattern>
+		<url-pattern>/removeSolicitud</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>CreateSolicitud</servlet-name>
@@ -149,8 +178,19 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>RefuseEstam</servlet-name>
 		<url-pattern>/refuseEstam</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>ListModificar</servlet-name>
+		<url-pattern>/listModificar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RemoveSolicitud</servlet-name>
+		<url-pattern>/removeSolicitud</url-pattern>
+	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>Remember</servlet-name>
+		<url-pattern>/remember</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/login</url-pattern>
@@ -159,9 +199,18 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>Welcome</servlet-name>
 		<url-pattern>/welcome</url-pattern>
 	</servlet-mapping>
-
-	
-
+	<servlet-mapping>
+		<servlet-name>RegisterBanco</servlet-name>
+		<url-pattern>/registerBanco</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterUni</servlet-name>
+		<url-pattern>/registerUni</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListSolicitud</servlet-name>
+		<url-pattern>/listSolicitud</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>

@@ -10,8 +10,8 @@
 
 <html>
 	<head>
-		<title>Todos</title>
-		<link rel="stylesheet" type="text/css" href="css/bandeja.css" />
+		<title>Solicitudes</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<meta charset="utf-8">
 	</head>
 	<body>

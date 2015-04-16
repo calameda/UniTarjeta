@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/main2.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <title>Registro</title>
 </head>
 <body>

@@ -11,11 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-import javax.servlet.http.HttpSession;
-
 import es.upm.dit.isst.unitarjeta.model.Banco;
 import es.upm.dit.isst.unitarjeta.model.Solicitud;
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
@@ -34,8 +29,8 @@ public class BancoServlet extends HttpServlet {
 		List<Solicitud> solicitudes = new ArrayList<Solicitud>();
 		
 		Banco banco = (Banco) req.getSession().getAttribute("Banco");
-		String nombre = banco.getNombre();
-		solicitudes = dao.getSolicitudesUni(nombre);
+		String nick = banco.getNick();
+		solicitudes = dao.getSolicitudesBanco(nick);
 		int x =  (int) req.getSession().getAttribute("x");
 		
 		req.getSession().setAttribute("solicitudes", new ArrayList<Solicitud>(solicitudes));

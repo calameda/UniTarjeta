@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Admin;
 
 public class CreateAdminServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)

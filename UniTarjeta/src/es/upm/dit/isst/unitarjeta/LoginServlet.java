@@ -3,18 +3,17 @@ package es.upm.dit.isst.unitarjeta;
 import java.io.IOException;
 
 
+
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
+import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-//import es.upm.dit.isst.unitarjeta.model.Admin;
-import es.upm.dit.isst.unitarjeta.model.Banco;
-import es.upm.dit.isst.unitarjeta.model.Estampadora;
-import es.upm.dit.isst.unitarjeta.model.Estudiante;
-import es.upm.dit.isst.unitarjeta.model.Universidad;
 import es.upm.dit.isst.unitarjeta.model.Usuario;
 
 
@@ -30,8 +29,10 @@ public class LoginServlet extends HttpServlet {
 		
 			
 			UsuarioDAO dao = UsuarioDAOImpl.getInstance();
+			SolicitudDAO dao2 = SolicitudDAOImpl.getInstance();
 			
 			Usuario usuario = dao.getUsuario(nick);
+			
 			
 			
 			if (usuario != null && usuario.getPassword().equals(password)){
@@ -41,6 +42,7 @@ public class LoginServlet extends HttpServlet {
 							resp.sendRedirect("admin.jsp");
 							break;
 					case 1: req.getSession().setAttribute("Estudiante", dao.getEstudiante(nick));
+							if(dao2.getSolicitud(dao.getEstudiante(nick).getDni()) != null)resp.sendRedirect("/inicioEstu");
 							resp.sendRedirect("inicioEstu.jsp");
 							break;
 					case 2:	req.getSession().setAttribute("x", entidad);

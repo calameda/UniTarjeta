@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Universidad;
+import es.upm.dit.isst.unitarjeta.model.Estampadora;
 import es.upm.dit.isst.unitarjeta.model.Usuario;
 
 
 
 
-public class WelcomeServlet extends HttpServlet {
+public class RegisterBancoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,15 +31,15 @@ public class WelcomeServlet extends HttpServlet {
 		
 		UsuarioDAO dao = UsuarioDAOImpl.getInstance();
 		
-		List<Universidad> universidades = new ArrayList<Universidad>();
+		List<Estampadora> estampadoras = new ArrayList<Estampadora>();
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		
 		usuarios = dao.listUsuarios();
-		universidades = dao.listUniversidades();
-		req.getSession().setAttribute("universidades", new ArrayList<Universidad>(universidades));
+		estampadoras = dao.listEstampadoras();
+		req.getSession().setAttribute("estampadoras", new ArrayList<Estampadora>(estampadoras));
 		req.getSession().setAttribute("usuarios", new ArrayList<Usuario>(usuarios));
 
-		RequestDispatcher view = req.getRequestDispatcher("registerEstu.jsp");
+		RequestDispatcher view = req.getRequestDispatcher("registerBanco.jsp");
         view.forward(req, resp);
 		
 		}

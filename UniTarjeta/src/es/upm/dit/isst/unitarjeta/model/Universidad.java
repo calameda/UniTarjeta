@@ -26,7 +26,6 @@ public class Universidad implements Serializable{
 		
 		public Universidad(String email, String password, String nick,
 				String nombre, String banco, String direccionUni) {
-			super();
 			this.email = email;
 			this.password = password;
 			this.nick = nick;

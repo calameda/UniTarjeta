@@ -13,27 +13,21 @@
 	<div class="exterior">
 		<div id="contenido">
 
-			<form action="/login" method="get" accept-charset="utf-8">
-					
+			<form action="/remember" method="get" accept-charset="utf-8">
+						<p>¿Necesitas la contraseña? Escribe tu correo o tu nick y te enviaremos tu nick y contraseña.
 						<p>
 							<span class="username"><img src="user.png"></span>
 							<input type="text" name="nick" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required>
 						</p>
-						<p>
-							<span class="password"><img src="lock.png"></span>
-							<input type="password" name="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required>
-						</p>
-						<a href="rememberemail.jsp"> ¿Has olvidado tu contraseña?</a>
 						
 						<p class="sesion">
-							<input type="submit" value="Login" />
+							<input type="submit" value="pedir" />
 						</p>
 					
 
 
 			</form>
 
-			<p>¿Quieres una tarjeta universitaria?<a href="/welcome">Registrate</a><span class="registro"></span></p>
 		</div>
 	</div>
 	<div id="contacta">

@@ -6,19 +6,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/main.css" />
 <%@page session='true'%>
-<title>Login</title>
+<title>Admin</title>
 </head>
 <body>
 <div class="exterior">
 		<div id="contenido">
 
 			
-			<p><a href="registerEstu.jsp">Registra Estudiante</a><span class="registro"></span></p>
-			<p><a href="registerUni.jsp">Registra Universidad</a><span class="registro"></span></p>
-			<p><a href="registerBanco.jsp">Registra Banco</a><span class="registro"></span></p>
+			<p><a href="/welcome">Registra Estudiante</a><span class="registro"></span></p>
+			<p><a href="/registerUni">Registra Universidad</a><span class="registro"></span></p>
+			<p><a href="/registerBanco">Registra Banco</a><span class="registro"></span></p>
 			<p><a href="registerEstam.jsp">Registra Estampadora</a><span class="registro"></span></p>
 			<p><a href="registerAdmin.jsp">Registra Administrador</a><span class="registro"></span></p>
 			<p><a href="/listUsuario">Borrar Usuario</a><span class="registro"></span></p>
+			<p><a href="/listSolicitud">Borrar Solicitud</a><span class="registro"></span></p>
+			<p><a href="/listModificar">Modificar</a><span class="registro"></span></p>
 			
 			
 		</div>

@@ -1,6 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<%@page isELIgnored="false"%>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -31,7 +36,11 @@
 							</td>
 							<td >
 								<label for="Banco asociado" class="labelLetra">Banco asociado</label>
-								<input class="textoLetra" type="text" name="banco" value="Banco asociado" onBlur="if(this.value == '') this.value = 'Banco asociado'" onFocus="if(this.value == 'Banco asociado') this.value = ''" required>
+								<select class="textoLetra" type="text" name="banco" value="Banco asociado">
+								<option selected value="0">Elige el banco</option>
+								<c:forEach items="${bancos}" var="banco">
+									<option value="${banco.nick}"><c:out value="${banco.nombre}"/></option>
+								</c:forEach>
 							</td>
 							</tr>
 							<tr>
@@ -51,12 +60,12 @@
 						</tr>
 						<tr>
 							<td>
-								<label for="contraseña" class="labelLetra">Contraseña</label>
+								<label for="contraseÃ±a" class="labelLetra">ContraseÃ±a</label>
 								<input type="password" name="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required>
 							</td>
 
 							<td>
-								<label for="Rcontraseña" class="labelLetra">Repita contraseña</label>
+								<label for="RcontraseÃ±a" class="labelLetra">Repita contraseÃ±a</label>
 								<input type="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required>
 							</td>
 							

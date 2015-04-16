@@ -6,16 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
-
-
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Universidad;
-import es.upm.dit.isst.unitarjeta.model.Usuario;
-
 
 public class CreateUniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -35,11 +35,11 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 	}
 	
 	@Override
-	public Solicitud getSolicitud(String nick){
+	public Solicitud getSolicitud(String dni){
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
-				.createQuery("select t from Solicitud t");
-		q.setParameter("nick",nick);
+				.createQuery("select t from Solicitud t where dni = :dni");
+		q.setParameter("dni",dni);
 		List<Solicitud> solicitudes = q.getResultList();
 		
 		em.close();
@@ -87,6 +87,7 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
 				.createQuery("select t from Solicitud t where t.banco = :banco and t.validaUni = True and t.validaBanco = False");
+		q.setParameter("banco", banco);
 		List<Solicitud> solicitudes = q.getResultList();
 		return solicitudes;
 	}
@@ -95,7 +96,8 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 	public List<Solicitud> getSolicitudesEstam(String estam){
 		EntityManager em = EMFService.get().createEntityManager();
 		Query q = em
-				.createQuery("select t from Solicitud t where t.estampadora = :estam and and t.validaUni = True and t.validaBanco = True and t.finished = False ");
+				.createQuery("select t from Solicitud t where t.estampadora = :estam and t.validaUni = True and t.validaBanco = True and t.finished = False");
+		q.setParameter("estam", estam);
 		List<Solicitud> solicitudes = q.getResultList();
 		return solicitudes;
 	}

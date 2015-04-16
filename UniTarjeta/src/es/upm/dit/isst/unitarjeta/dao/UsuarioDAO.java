@@ -37,7 +37,12 @@ public interface UsuarioDAO {
 	public void removeUniversidad(long id);
 	public void sendmail (String email, String msgBody);
 	public List<Universidad> listUniversidades();
-	
-	
+	public void actualizarEstampadora(Estampadora estam);
+	public void actualizarEstudiante(Estudiante estu);
+	public void actualizarUniversidad(Universidad uni);
+	public void actualizarBanco(Banco banco);
+	public List<Estudiante> listEstudiantes();
+	public List<Banco> listBancos();
+	public List<Estampadora> listEstampadoras();
 	
 }

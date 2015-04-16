@@ -9,6 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import es.upm.dit.isst.unitarjeta.model.Admin;
@@ -38,15 +39,48 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		// read the existing entries
 		Query q = em.createQuery("select m from Usuario m");
 		List<Usuario> usuarios = q.getResultList();
+		em.close();
 		return usuarios;
 	}
+	
+	@Override
+	public List<Estudiante> listEstudiantes() {
+		EntityManager em = EMFService.get().createEntityManager();
+		// read the existing entries
+		Query q = em.createQuery("select m from Estudiante m");
+		List<Estudiante> estudiantes = q.getResultList();
+		em.close();
+		return estudiantes;
+	}
+	
 	@Override
 	public List<Universidad> listUniversidades() {
 		EntityManager em = EMFService.get().createEntityManager();
 		// read the existing entries
 		Query q = em.createQuery("select m from Universidad m");
 		List<Universidad> universidades = q.getResultList();
+		em.close();
 		return universidades;
+	}
+	
+	@Override
+	public List<Banco> listBancos() {
+		EntityManager em = EMFService.get().createEntityManager();
+		// read the existing entries
+		Query q = em.createQuery("select m from Banco m");
+		List<Banco> bancos = q.getResultList();
+		em.close();
+		return bancos;
+	}
+	
+	@Override
+	public List<Estampadora> listEstampadoras() {
+		EntityManager em = EMFService.get().createEntityManager();
+		// read the existing entries
+		Query q = em.createQuery("select m from Estampadora m");
+		List<Estampadora> estampasdoras = q.getResultList();
+		em.close();
+		return estampasdoras;
 	}
 	
 	@Override
@@ -271,7 +305,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			Session session = Session.getDefaultInstance(props, null);
 			Message msg = new MimeMessage(session);
 
-			msg.setFrom(new InternetAddress("pablo17993@gmail.com"));
+			msg.setFrom(new InternetAddress("unitarjetainfo@gmail.com"));
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
 					email));
 			msg.setSubject("Aviso – Confirmación registro");
@@ -283,5 +317,85 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 
 	}
+	@Override
+	public void actualizarEstudiante(Estudiante estu){
+		EntityManager em = EMFService.get().createEntityManager();
+		EntityTransaction ts = em.getTransaction();
+		
+		try{
+			ts.begin();
+			Estudiante x = em.find(Estudiante.class, estu.getId());
+			x = estu;
+			em.persist(x);
+			ts.commit();
+		} finally {
+			
+			if (ts.isActive()){
+				ts.rollback();
+			}
+			em.close();
+		}
+	}
+	
+	@Override
+	public void actualizarUniversidad(Universidad uni){
+		EntityManager em = EMFService.get().createEntityManager();
+		EntityTransaction ts = em.getTransaction();
+		
+		try{
+			ts.begin();
+			Universidad x = em.find(Universidad.class, uni.getId());
+			x = uni;
+			em.persist(x);
+			ts.commit();
+		} finally {
+			
+			if (ts.isActive()){
+				ts.rollback();
+			}
+			em.close();
+		}
+	}
+	
+	@Override
+	public void actualizarBanco(Banco banco){
+		EntityManager em = EMFService.get().createEntityManager();
+		EntityTransaction ts = em.getTransaction();
+		
+		try{
+			ts.begin();
+			Banco x = em.find(Banco.class, banco.getId());
+			x = banco;
+			em.persist(x);
+			ts.commit();
+		} finally {
+			
+			if (ts.isActive()){
+				ts.rollback();
+			}
+			em.close();
+		}
+	}
+	
+	@Override
+	public void actualizarEstampadora(Estampadora estam){
+		EntityManager em = EMFService.get().createEntityManager();
+		EntityTransaction ts = em.getTransaction();
+		
+		try{
+			ts.begin();
+			Estampadora x = em.find(Estampadora.class, estam.getId());
+			x = estam;
+			em.persist(x);
+			ts.commit();
+		} finally {
+			
+			if (ts.isActive()){
+				ts.rollback();
+			}
+			em.close();
+		}
+	}
+
 
 }

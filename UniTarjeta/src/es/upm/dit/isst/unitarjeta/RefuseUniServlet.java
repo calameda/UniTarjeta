@@ -1,10 +1,6 @@
 package es.upm.dit.isst.unitarjeta;
 
 import java.io.IOException;
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.Session;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +16,12 @@ public class RefuseUniServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		String id = req.getParameter("id");
+		String idS = req.getParameter("id");
+		Long id = Long.parseLong(idS);
 		SolicitudDAO dao = SolicitudDAOImpl.getInstance();
 		UsuarioDAO dao2 = UsuarioDAOImpl.getInstance();
 
-		dao.remove(Long.parseLong(id));
+		dao.remove(id);
 		
 			String msgBody = "Su solicitud de tarjeta es erronea. Vuelva realizarla revisando los datos.";
 

@@ -15,9 +15,10 @@ public class RemoveSolicitudServlet extends HttpServlet {
 
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
   throws IOException {
-    String id = req.getParameter("id");
+	String idS = req.getParameter("id");
+	Long id = Long.parseLong(idS);
     SolicitudDAO dao = SolicitudDAOImpl.getInstance();
-    dao.remove(Long.parseLong(id));
-    resp.sendRedirect("/");
+    dao.remove(id);
+    resp.sendRedirect("/listSolicitud");
   }
 } 
