@@ -13,8 +13,10 @@
 <title>Registro</title>
 </head>
 <body>
+	<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+	<div style="clear: both;" />
 	<div class="exteriorReg">
-		<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+		
 		<div id="contenidoRegistro">
 
 				<form action="/newUni" method="post" accept-charset="utf-8">

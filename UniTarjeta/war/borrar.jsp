@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<title>Borrar Usuarios</title>
-		<link rel="stylesheet" type="text/css" href="css/admin.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<meta charset="utf-8">
 	</head>
 	<body>
@@ -28,6 +28,8 @@
 		<div style="clear: both;" />
 		Hay <c:out value="${fn:length(usuarios)}" />
 		usuarios en el sistema.
+	<div class="exteriorLis">
+		<div id="contenidoList">
 	
 		<table>
 			<tr>
@@ -48,6 +50,8 @@
 			
 			</c:forEach>
 		</table>
+		</div>
+		</div>
 	
 	
 		<hr />

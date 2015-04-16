@@ -11,7 +11,7 @@
 <html>
 	<head>
 		<title>Solicitudes</title>
-		<link rel="stylesheet" type="text/css" href="css/admin.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<meta charset="utf-8">
 	</head>
 	<body>
@@ -28,7 +28,8 @@
 		<div style="clear: both;" />
 		Hay <c:out value="${fn:length(solicitudes)}" />
 		Solicitudes en el sistema.
-	
+		<div class="exteriorLis">
+			<div id="contenidoList">
 		<table>
 			<tr>
 				<th>Estudiante</th>
@@ -50,8 +51,9 @@
 		</table>
 	
 	
-		<hr />
-	
 		
+	
+		</div>
+		</div>
 	</body>
 </html>

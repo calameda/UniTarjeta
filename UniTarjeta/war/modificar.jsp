@@ -28,29 +28,21 @@
 		<div style="clear: both;" />
 		Hay <c:out value="${fn:length(usuarios)}" />
 		usuarios en el sistema.
+		<div class="exteriorLis">
+			<div id="contenidoList">
 	
-		<table>
+			<table>
 			<tr>
-				<th>Entidad</th>
-				<th>Usuario</th>
+				<th>Identificación</th>
 				<th>Email</th>
-				<th>Borrar</th>
-			</tr>
-	
-			<<table>
-			<tr>
-				<th>Nombre</th>
-				<th>Email</th>
-				<th>Dni</th>
-				<th>Entidad asociada</th>
+				<th>Ent.asociada</th>
 				<th>Modificar</th>
 			</tr>
 	 
 			<c:forEach items="${estudiantes}" var="estu">
 				<tr>
-					<td><c:out value="${estu.nombre}" /></td>
+					<td><c:out value="${estu.dni}" /></td>
 					<td><c:out value="${estu.email}" /></td>
-					<td></td>
 					<td><c:out value="${estu.universidad}" /></td>
 					<td><a class="done"
 						href="<c:url value="/modificar?nick=${estu.nick}" />">Si</a></td>
@@ -61,7 +53,6 @@
 				<tr>
 					<td><c:out value="${uni.nombre}" /></td>
 					<td><c:out value="${uni.email}" /></td>
-					<td></td>
 					<td><c:out value="${uni.banco}" /></td>
 					<td><a class="done"
 						href="<c:url value="/modificar?nick=${uni.nick}" />">Si</a></td>
@@ -69,11 +60,12 @@
 			
 			</c:forEach>
 			
-		</table>
-		</table>
+			</table>
+			</div>
+		</div>
 	
 	
-		<hr />
+		
 	
 		
 	</body>

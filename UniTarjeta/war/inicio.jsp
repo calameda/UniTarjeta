@@ -28,7 +28,8 @@
 		<div style="clear: both;" />
 		Tiene <c:out value="${fn:length(solicitudes)}" />
 		Solicitudes pendientes.
-	
+		<div class="exteriorLis">
+			<div id="contenidoList">
 		<table>
 			<tr>
 				<th>Solicitudes</th>
@@ -78,7 +79,8 @@
 		</table>
 	
 	
-		<hr />
+		</div>
+		</div>
 	
 		
 	</body>

@@ -100,6 +100,7 @@ $(function(){
 	<c:if test="${x == 1}"> 
 	<div style="float: right;" class="headline"><a href="login.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
 	</c:if>
+	<div style="clear: both;" />
 	<div class="exteriorReg">
 		<div id="contenidoRegistro">
 

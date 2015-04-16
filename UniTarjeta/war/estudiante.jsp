@@ -16,7 +16,7 @@
 </head>
 <body>
 <div style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></div>
-
+<div style="clear: both;" />
 	<p> Tiene una solicitud hecha, espera a que se tramite. Su estado es: </p>
 
 	<c:if test="${estado == 0}">
