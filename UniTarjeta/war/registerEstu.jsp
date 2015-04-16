@@ -94,6 +94,12 @@ $(function(){
 <li> <a href="cursos.html">INFORMACIÓN</a> </li>
 <li> <a href="humor.html">EQUIPO</a> </li> -->
 	</ul>
+	<c:if test="${x == 0}"> 
+	<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+	</c:if>
+	<c:if test="${x == 1}"> 
+	<div style="float: right;" class="headline"><a href="login.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+	</c:if>
 	<div class="exteriorReg">
 		<div id="contenidoRegistro">
 
@@ -180,11 +186,12 @@ $(function(){
 								</c:forEach>
 						</select></td>
 						<td><label for="banco" class="labelLetra">¿Quieres
-								cuenta banco?</label> <input class="textoLetra" type="text" name="banco"
-							id="nombre" value="Si"
-							onBlur="if(this.value == '') this.value = 'Si'"
-							onFocus="if(this.value == 'Si') this.value = ''" required>
-						</td>
+								cuenta banco?</label> 
+						<select class="textoLetra" type="text" name="banco" id="nombre" >
+								<option selected value="Si">Si</option>
+								<option value="No">No</option>
+								
+						</select></td>
 
 					</tr>
 					<tr>

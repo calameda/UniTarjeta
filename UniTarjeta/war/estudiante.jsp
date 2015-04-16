@@ -15,6 +15,7 @@
 <meta charset="utf-8">
 </head>
 <body>
+<div style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></div>
 
 	<p> Tiene una solicitud hecha, espera a que se tramite. Su estado es: </p>
 

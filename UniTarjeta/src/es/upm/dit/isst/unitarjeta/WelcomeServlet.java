@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Solicitud;
 import es.upm.dit.isst.unitarjeta.model.Universidad;
 import es.upm.dit.isst.unitarjeta.model.Usuario;
 
@@ -27,7 +28,17 @@ public class WelcomeServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
+		try{
+		int x =  (int) req.getSession().getAttribute("x");
+		if (x != 0){ 
+			x=1; 
+			req.getSession().setAttribute("x", x);
+		}
 		
+		}catch(NullPointerException e){
+			int x=1;
+			req.getSession().setAttribute("x", x);	
+		}
 		
 		UsuarioDAO dao = UsuarioDAOImpl.getInstance();
 		

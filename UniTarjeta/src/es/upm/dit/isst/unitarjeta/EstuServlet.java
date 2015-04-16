@@ -1,8 +1,6 @@
 package es.upm.dit.isst.unitarjeta;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
-import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
-import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Estampadora;
 import es.upm.dit.isst.unitarjeta.model.Estudiante;
 import es.upm.dit.isst.unitarjeta.model.Solicitud;
 

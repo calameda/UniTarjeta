@@ -8,6 +8,7 @@
 <title>Registro</title>
 </head>
 <body>
+	<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
 	<div class="exteriorReg">
 		<div id="contenidoRegistro">
 

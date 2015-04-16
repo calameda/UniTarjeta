@@ -9,10 +9,10 @@
 <title>Admin</title>
 </head>
 <body>
+<div style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></div>
 <div class="exterior">
 		<div id="contenido">
 
-			
 			<p><a href="/welcome">Registra Estudiante</a><span class="registro"></span></p>
 			<p><a href="/registerUni">Registra Universidad</a><span class="registro"></span></p>
 			<p><a href="/registerBanco">Registra Banco</a><span class="registro"></span></p>

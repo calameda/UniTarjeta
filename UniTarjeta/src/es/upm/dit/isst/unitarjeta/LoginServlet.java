@@ -41,7 +41,8 @@ public class LoginServlet extends HttpServlet {
 					case 0: req.getSession().setAttribute("x", entidad);
 							resp.sendRedirect("admin.jsp");
 							break;
-					case 1: req.getSession().setAttribute("Estudiante", dao.getEstudiante(nick));
+					case 1: req.getSession().setAttribute("x", entidad);
+							req.getSession().setAttribute("Estudiante", dao.getEstudiante(nick));
 							if(dao2.getSolicitud(dao.getEstudiante(nick).getDni()) != null)resp.sendRedirect("/inicioEstu");
 							resp.sendRedirect("inicioEstu.jsp");
 							break;

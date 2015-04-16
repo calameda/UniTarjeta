@@ -43,11 +43,8 @@ public class CreateEstudianteServlet extends HttpServlet {
 			resp.sendRedirect("admin.jsp");
 
 		} else {
-			int a = (int) req.getSession().getAttribute("x");
-			UsuarioDAO dao = UsuarioDAOImpl.getInstance();
-
-			if (dao.getEstudiante(nick) == null
-					&& dao.getEstudianteDni(dni) == null) {
+				int a = (int) req.getSession().getAttribute("x");
+				UsuarioDAO dao = UsuarioDAOImpl.getInstance();
 				dao.addEstudiante(email, password, nick, nombre, dni,
 						direccion, banco, universidad);
 				dao.addUsuario(entidad, email, password, nick);
@@ -56,7 +53,7 @@ public class CreateEstudianteServlet extends HttpServlet {
 				dao.sendmail(email, msg);
 
 				if (a == 0) {
-					resp.sendRedirect("/");
+					resp.sendRedirect("admin.jsp");
 
 				} else {
 
@@ -65,8 +62,7 @@ public class CreateEstudianteServlet extends HttpServlet {
 				}
 
 			}
-		}
-		resp.sendRedirect("/");
+		
 
 	}
 

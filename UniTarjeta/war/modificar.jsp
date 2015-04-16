@@ -20,7 +20,7 @@
 			<div class="line"></div>
 			<div class="topLine">
 				<div style="float: left;" class="headline">Usuarios</div>
-						 
+				<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>	 
 				</div>
 			</div>
 		</div>
