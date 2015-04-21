@@ -38,7 +38,11 @@
 	<c:if test="${estado == 3}">
 		<p> Su tarjeta está lista. <p/>
 	</c:if>
-
+	
+	<c:if test="${estado == 4}">
+		<p>La solicitud no ha sido tranmitada por la universidad, ha habido algún problema, contacta con nosotros a través de unitarjetainfo@gmail.com e intentaremos solucionarlo. Disculpe las molestias. </p>
+	</c:if>
+	
 
 
 

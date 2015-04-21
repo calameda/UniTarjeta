@@ -10,11 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
-import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
-import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
-import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Usuario;
 
 
 public class CerrarSesionServlet extends HttpServlet {

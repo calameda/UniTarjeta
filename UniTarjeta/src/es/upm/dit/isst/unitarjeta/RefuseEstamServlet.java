@@ -21,6 +21,7 @@ public class RefuseEstamServlet extends HttpServlet {
 		    SolicitudDAO dao = SolicitudDAOImpl.getInstance();
 		    Solicitud solicitud = dao.getSolicitud(id);
 		    solicitud.setValidaBanco(false);
+		    solicitud.setEstampadora("Fallo");
 		    dao.actualizar(solicitud);
 		    resp.sendRedirect("/inicioEstam");
 		  }		

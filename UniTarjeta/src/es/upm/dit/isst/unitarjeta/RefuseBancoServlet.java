@@ -21,6 +21,7 @@ public class RefuseBancoServlet extends HttpServlet {
 		    SolicitudDAO dao = SolicitudDAOImpl.getInstance();
 		    Solicitud solicitud = dao.getSolicitud(id);
 		    solicitud.setValidaUni(false);
+		    solicitud.setBanco("Fallo");
 		    dao.actualizar(solicitud);
 		    resp.sendRedirect("/inicioBanco");
 		  }		

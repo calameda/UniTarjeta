@@ -29,12 +29,13 @@ public class EstuServlet extends HttpServlet {
 	  	boolean b = solicitud.isValidaBanco();
 	  	boolean c = solicitud.isFinished();
 	  	int estado = 0;
+	  	String fallo = "Fallo";
 	  	if (a == true &&  b == false && c == false) estado =1;
 	  	if (a == true &&  b == true && c == false) estado =2;
 	  	if (a == true &&  b == true && c == true) estado =3;
+	  	if (solicitud.getUniversidad() == fallo) estado =4;
 	  	
 		req.getSession().setAttribute("estado", estado);
-		
 		RequestDispatcher view = req.getRequestDispatcher("estudiante.jsp");
 		try {
 			view.forward(req, resp);

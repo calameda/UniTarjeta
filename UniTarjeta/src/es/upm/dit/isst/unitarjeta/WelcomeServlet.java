@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
-import es.upm.dit.isst.unitarjeta.model.Solicitud;
 import es.upm.dit.isst.unitarjeta.model.Universidad;
 import es.upm.dit.isst.unitarjeta.model.Usuario;
 

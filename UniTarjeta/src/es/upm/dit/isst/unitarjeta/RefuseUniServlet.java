@@ -10,6 +10,7 @@ import es.upm.dit.isst.unitarjeta.dao.SolicitudDAO;
 import es.upm.dit.isst.unitarjeta.dao.SolicitudDAOImpl;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Solicitud;
 
 public class RefuseUniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,15 +21,18 @@ public class RefuseUniServlet extends HttpServlet {
 		Long id = Long.parseLong(idS);
 		SolicitudDAO dao = SolicitudDAOImpl.getInstance();
 		UsuarioDAO dao2 = UsuarioDAOImpl.getInstance();
-
-		dao.remove(id);
+		Solicitud solicitud = dao.getSolicitud(id);
+		solicitud.setUniversidad("Fallo");
 		
-			String msgBody = "Su solicitud de tarjeta es erronea. Vuelva realizarla revisando los datos.";
+		dao.actualizar(solicitud);
+	
+		String msgBody = "Su solicitud de tarjeta es erronea. Vuelva realizarla revisando los datos.";
 
-			String dni = dao.getSolicitud(id).getDni();
+		String dni = solicitud.getDni();
 
-			String email = dao2.getEstudianteDni(dni).getEmail();
-			dao2.sendmail(email, msgBody);
+		String email = dao2.getEstudianteDni(dni).getEmail();
+		
+		dao2.sendmail(email, msgBody);
 			
 		resp.sendRedirect("/inicioUni");
 	}
