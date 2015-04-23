@@ -23,7 +23,9 @@
 							<span class="password"><img src="lock.png"></span>
 							<input type="password" name="password" value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required>
 						</p>
-						<a href="rememberemail.jsp" class="olvida"> ¿Has olvidado tu contraseña?</a>
+						<div class="olvida">
+						<a href="rememberemail.jsp"> ¿Has olvidado tu contraseña?</a>
+						</div>
 						
 						<p class="sesion">
 							<input type="submit" value="Login" />

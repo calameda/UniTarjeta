@@ -84,12 +84,12 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 	
 	@Override
-	public void addEstudiante(String email, String password, String nick,
+	public void addEstudiante(String nick,
 			String nombre, String dni, String direccion, boolean banco,
 			String universidad) {
 
 		EntityManager em = EMFService.get().createEntityManager();
-		Estudiante usuario = new Estudiante(email, password, nick, nombre, dni,
+		Estudiante usuario = new Estudiante(nick, nombre, dni,
 				direccion, banco, universidad);
 		em.persist(usuario);
 		em.close();

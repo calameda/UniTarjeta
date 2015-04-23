@@ -34,8 +34,15 @@
 			<tr>
 				<th>Solicitudes</th>
 				<th>DNI</th>
+				<c:if test="${x == 3}"> 
+					<th>PIN</th>
+					<th>Número de cuenta</th>
+					<th>Fecha de caducidad</th>
+					<th>CVC</th>
+				</c:if>
 				<th>Válido</th>
 				<th>Inválido</th>
+				 
 			</tr>
 	
 			<c:forEach items="${solicitudes}" var="solicitud">
@@ -55,17 +62,58 @@
 					
 					<c:if test="${x == 3}"> 
 					
-					<td><a class="done"
-						href="<c:url value="/doneBanco?id=${solicitud.id}" />">Si</a></td>
-					<td><a class="done"
-						href="<c:url value="/refuseBanco?id=${solicitud.id}" />">No</a></td>
 					
+					<c:if test="${solicitud.cuenta}"> 
+									<form action="/doneBanco" method="post" accept-charset="utf-8"> 
+									<input type="hidden" name="id" value="${solicitud.id}">
+									
+									<td>
+										<input class="pin" type="text" name="pin" id="pin"
+										value="pin" size="4"
+										onBlur="if(this.value == '') this.value = 'PIN'"
+										onFocus="if(this.value == 'PIN') this.value = ''" required>
+									</td>
+									<td><input class="cuenta" type="text" name="cuenta"
+										value="cuenta" size="45"
+										onBlur="if(this.value == '') this.value = 'Cuenta'"
+										onFocus="if(this.value == 'Cuenta') this.value = ''"
+										required>
+									</td>
+									<td>
+										<input class="fecha" type="text" name="fecha" id="fecha"
+										value="Fecha" size="4"
+										onBlur="if(this.value == '') this.value = 'Fecha'"
+										onFocus="if(this.value == 'Fecha') this.value = ''" required>
+									</td>
+									<td><input class="cvc" type="text" name="cvc"
+										value="cvc" size="3"
+										onBlur="if(this.value == '') this.value = 'CVC'"
+										onFocus="if(this.value == 'CVC') this.value = ''"
+										required>
+									</td>
+									<td class="sesion"><input type="submit" value="Create" />
+									</form>
+									<td><a class="done" href="<c:url value="/refuseBanco?id=${solicitud.id}" />">No</a></td>
+							
+					
+					</c:if>
+					<c:if test="${solicitud.cuenta==false}"> 
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a class="done"
+						href="<c:url value="/doneBanco?id=${solicitud.id}&CVC=cvc&PIN=pin&Cuenta=cuenta&Fecha=fecha"/>">Si</a></td>
+						<td><a class="done"
+						href="<c:url value="/refuseBanco?id=${solicitud.id}" />">No</a></td>
+					</c:if>
 					</c:if> 
 					
 					<c:if test="${x == 4}"> 
 					
+					
 					<td><a class="done"
-						href="<c:url value="/doneEstam?id=${solicitud.id}" />">Si</a></td>
+						href="<c:url value="/doneUni?id=${solicitud.id}"/>">Si</a></td>
 					<td><a class="done"
 						href="<c:url value="/refuseEstam?id=${solicitud.id}" />">No</a></td>
 					

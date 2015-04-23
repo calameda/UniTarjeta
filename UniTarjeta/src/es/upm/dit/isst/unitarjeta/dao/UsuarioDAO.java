@@ -12,7 +12,7 @@ import es.upm.dit.isst.unitarjeta.model.Usuario;
 public interface UsuarioDAO {
 
 	public List<Usuario> listUsuarios();
-	public void addEstudiante(String email, String password, String nick,
+	public void addEstudiante(String nick,
 			String nombre, String dni, String direccion, boolean banco,
 			String universidad);
 	public void addEstampadora(String email, String password, String nick, String nombre);

@@ -17,5 +17,7 @@ public interface SolicitudDAO {
 	public Solicitud getSolicitud(long id);
 	public void remove (long id);
 	public void actualizar(Solicitud solicitud);
-	
+	void addBanco(String solicitante, String dni, String universidad,
+			String banco, String estampadora, String ncuenta, String cvc,
+			String pin, String fecha, boolean cuenta);
 }

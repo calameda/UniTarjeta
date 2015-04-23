@@ -21,18 +21,19 @@ public class CerrarSesionServlet extends HttpServlet {
 		int entidad = (int) req.getSession().getAttribute("x");
 		switch(entidad){
 		case 0: break;
-		case 1: req.getSession().setAttribute("Estudiante", "");
+		case 1: req.getSession().removeAttribute("Estudiante");
 				break;
-		case 2:	req.getSession().setAttribute("Universidad", "");
+		case 2:	req.getSession().removeAttribute("Universidad");
 				break;
-		case 3: req.getSession().setAttribute("Banco", "");
+		case 3: req.getSession().removeAttribute("Banco");
 				break;
-		case 4:	req.getSession().setAttribute("Estampadora", "");
+		case 4:	req.getSession().removeAttribute("Estampadora");
 				break;
 		default: break;		
 	}
 		
-			req.getSession().setAttribute("x", 5);
+			req.getSession().removeAttribute("entidad");
+			
 							
 			resp.sendRedirect("/");
 			

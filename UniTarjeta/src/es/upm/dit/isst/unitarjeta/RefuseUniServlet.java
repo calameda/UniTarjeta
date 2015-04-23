@@ -29,8 +29,9 @@ public class RefuseUniServlet extends HttpServlet {
 		String msgBody = "Su solicitud de tarjeta es erronea. Vuelva realizarla revisando los datos.";
 
 		String dni = solicitud.getDni();
+		String nick=dao2.getEstudianteDni(dni).getNick();
 
-		String email = dao2.getEstudianteDni(dni).getEmail();
+		String email = dao2.getUsuario(nick).getEmail();
 		
 		dao2.sendmail(email, msgBody);
 			

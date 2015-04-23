@@ -53,7 +53,20 @@ public class SolicitudDAOImpl implements SolicitudDAO {
 		
 			EntityManager em = EMFService.get().createEntityManager();
 			Solicitud solicitud = new Solicitud(solicitante.getNombre(), solicitante.getDni(), solicitante.getUniversidad(), null, null,
-					solicitante.isBanco(), false, false, false);
+					null, null,null,null,solicitante.isBanco(), false, false, false);
+			em.persist(solicitud);
+			em.close();
+		
+
+	}
+	@Override
+	public void addBanco(String solicitante, String dni, String universidad,
+			String banco, String estampadora, String ncuenta, String cvc,
+			String pin, String fecha, boolean cuenta) {
+		
+			EntityManager em = EMFService.get().createEntityManager();
+			Solicitud solicitud = new Solicitud(solicitante, dni, universidad, banco, estampadora,
+					ncuenta,cvc,pin,fecha,cuenta, true, true, false);
 			em.persist(solicitud);
 			em.close();
 		

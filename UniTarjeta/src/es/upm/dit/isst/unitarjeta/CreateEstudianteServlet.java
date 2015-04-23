@@ -1,6 +1,9 @@
 package es.upm.dit.isst.unitarjeta;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +16,7 @@ public class CreateEstudianteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws IOException {
+			throws IOException, ServletException {
 		System.out.println("Creating new user ");
 		int entidad = 1;
 		String name = checkNull(req.getParameter("name"));
@@ -33,19 +36,23 @@ public class CreateEstudianteServlet extends HttpServlet {
 		if (bancoS.equalsIgnoreCase("SI")) {
 			banco = true;
 		}
+		
+		UsuarioDAO dao = UsuarioDAOImpl.getInstance();
 
-		if (nick.equals("Admin") && password.equals("UniTarjetAdmin")) {
-			entidad = 0;
-			UsuarioDAO dao = UsuarioDAOImpl.getInstance();
-			dao.addAdmin(email, password, nick);
-			dao.addUsuario(entidad, email, password, nick);
-			req.getSession().setAttribute("x", entidad);
-			resp.sendRedirect("admin.jsp");
+		if(dao.getEstudiante(nick) == null && dao.getEstudianteDni(dni) == null){
 
-		} else {
+			req.getSession().removeAttribute("error");
+
+			if (nick.equals("Admin") && password.equals("UniTarjetAdmin")) {
+				entidad = 0;
+				dao.addAdmin(email, password, nick);
+				dao.addUsuario(entidad, email, password, nick);
+				req.getSession().setAttribute("x", entidad);
+				resp.sendRedirect("admin.jsp");
+
+			} else {
 				int a = (int) req.getSession().getAttribute("x");
-				UsuarioDAO dao = UsuarioDAOImpl.getInstance();
-				dao.addEstudiante(email, password, nick, nombre, dni,
+				dao.addEstudiante(nick, nombre, dni,
 						direccion, banco, universidad);
 				dao.addUsuario(entidad, email, password, nick);
 
@@ -60,8 +67,12 @@ public class CreateEstudianteServlet extends HttpServlet {
 					resp.sendRedirect("/");
 
 				}
-
 			}
+		}else{
+			resp.sendRedirect("/welcome");
+		}
+
+			
 		
 
 	}

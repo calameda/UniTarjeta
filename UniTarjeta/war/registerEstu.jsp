@@ -58,11 +58,13 @@ $(function(){
 			var valor = $("#email").val();			
 			if(!((/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/).test(valor))){
 				document.getElementById("email").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
-				document.getElementById("email").style.outline="0 none";	
+				document.getElementById("email").style.outline="0 none";
+				return true;
 			}
             else{
 				document.getElementById("email").style.boxShadow="";
 				document.getElementById("email").style.outline="";
+				return false;
             }
 		}
 		function contraseña(){
@@ -71,13 +73,15 @@ $(function(){
 			  if(valor != valor2){
 				  document.getElementById("rcontraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				  document.getElementById("rcontraseña").style.outline="0 none";
+				  return true;
 				  }
 			  else{
 				  document.getElementById("rcontraseña").style.boxShadow="";
 				  document.getElementById("rcontraseña").style.outline="";
+				  return false;
 			  }
-			  }
-			  
+		}
+		  
 	
 
 		$("#nombre").blur(numero);		
@@ -85,31 +89,75 @@ $(function(){
 		$("#email").blur(email);
 		$("#rcontraseña").blur(contraseña);
  });	
+function email(){			
+	var valor = $("#email").val();			
+	if(!((/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/).test(valor))){
+		document.getElementById("email").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+		document.getElementById("email").style.outline="0 none";
+		return true;
+	}
+    else{
+		document.getElementById("email").style.boxShadow="";
+		document.getElementById("email").style.outline="";
+		return false;
+    }
+}
+function contraseña(){
+	  var valor = $("#contraseña").val();
+	  var valor2 = $("#rcontraseña").val();
+	  if(valor != valor2){
+		  document.getElementById("rcontraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+		  document.getElementById("rcontraseña").style.outline="0 none";
+		  return true;
+		  }
+	  else{
+		  document.getElementById("rcontraseña").style.boxShadow="";
+		  document.getElementById("rcontraseña").style.outline="";
+		  return false;
+	  }
+}
+ 
+function validar(){
+	 if(!this.contraseña() && !this.email() ){return true;}
+	 document.getElementById("pass").innerHTML += "No coinciden las contraseñas";
+	 return false;
+}	
 		 </script>
 </head>
 <body>
-	<!--	<ul class="menuVert1">
-<li><a href="#">INICIO</a></li>
-<li> <a href="libros.html">CONTÁCTANOS</a> </li>
-<li> <a href="cursos.html">INFORMACIÓN</a> </li>
-<li> <a href="humor.html">EQUIPO</a> </li> -->
 	</ul>
-	<c:if test="${x == 0}"> 
-	<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+	<c:if test="${x == 0}">
+		<div style="float: right;" class="headline">
+			<a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar
+				sesión</a>
+		</div>
 	</c:if>
-	<c:if test="${x == 1}"> 
-	<div style="float: right;" class="headline"><a href="login.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+	<c:if test="${x == 1}">
+		<div style="float: right;" class="headline">
+			<a href="login.jsp">Atrás</a><a href="/cerrarSesion">Cerrar
+				sesión</a>
+		</div>
 	</c:if>
 	<div style="clear: both;" />
+
+
 	<div class="exteriorReg">
 		<div id="contenidoRegistro">
 
-			<form action="/newEstu" method="post" accept-charset="utf-8">
+
+			<form action="/newEstu" method="post" accept-charset="utf-8"
+				onSubmit="return validar()">
 
 				<table align="center">
 
 
+					<c:if test="${error == 1}">
+						<label for="ERROR" class="labelLetra">Nick o dni ya en
+							uso.</label>
+					</c:if>
+
 					<tr>
+
 
 
 						<td><label for="nick" class="labelLetra">Nick</label> <input
@@ -179,19 +227,22 @@ $(function(){
 					</tr>
 					<tr>
 
-						
-						<td><label for="universidad" class="labelLetra">Universidad</label><select name="universidad" class="textoLetra" name="universidad" id="nombre">
+
+						<td><label for="universidad" class="labelLetra">Universidad</label><select
+							name="universidad" class="textoLetra" name="universidad"
+							id="nombre">
 								<option selected value="0">Elige una Universidad</option>
 								<c:forEach items="${universidades}" var="uni">
-									<option value="${uni.nick}"><c:out value="${uni.nombre}"/></option>
+									<option value="${uni.nick}"><c:out
+											value="${uni.nombre}" /></option>
 								</c:forEach>
 						</select></td>
 						<td><label for="banco" class="labelLetra">¿Quieres
-								cuenta banco?</label> 
-						<select class="textoLetra" type="text" name="banco" id="nombre" >
+								cuenta banco?</label> <select class="textoLetra" type="text"
+							name="banco" id="nombre">
 								<option selected value="Si">Si</option>
 								<option value="No">No</option>
-								
+
 						</select></td>
 
 					</tr>
@@ -213,11 +264,13 @@ $(function(){
 						</td>
 					</tr>
 
+
 					<tr>
-					
+
 						<td colspan="2" align="center" class="sesion"><input
 							type="submit" value="Create" /></td>
 					</tr>
+					<tr id="pass"></tr>
 				</table>
 
 			</form>
