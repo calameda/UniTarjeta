@@ -98,10 +98,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-class>es.upm.dit.isst.unitarjeta.RememberServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>ListModificar</servlet-name>
-		<servlet-class>es.upm.dit.isst.unitarjeta.ListModificarServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>ListSolicitud</servlet-name>
 		<servlet-class>es.upm.dit.isst.unitarjeta.ListSolicitudServlet</servlet-class>
 	</servlet>
@@ -181,10 +177,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>RefuseEstam</servlet-name>
 		<url-pattern>/refuseEstam</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>ListModificar</servlet-name>
-		<url-pattern>/listModificar</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>RemoveSolicitud</servlet-name>

@@ -170,6 +170,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			return null;
 		return usuarios.get(0);
 	}
+	@Override
+	public Usuario getUsuarioEmail(String email) {
+		EntityManager em = EMFService.get().createEntityManager();
+		Query q = em
+				.createQuery("select t from Usuario t where t.email = :email");
+		q.setParameter("email", email);
+		List<Usuario> usuarios = q.getResultList();
+		if (usuarios.isEmpty())
+			return null;
+		return usuarios.get(0);
+	}
 
 	@Override
 	public Estudiante getEstudianteDni(String dni) {
@@ -308,7 +319,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			msg.setFrom(new InternetAddress("unitarjetainfo@gmail.com"));
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
 					email));
-			msg.setSubject("Aviso – Confirmación registro");
+			msg.setSubject("Aviso de registro");
 			msg.setText(msgBody);
 			Transport.send(msg);
 

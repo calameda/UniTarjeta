@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
@@ -40,8 +41,8 @@ public class CreateEstudianteServlet extends HttpServlet {
 		UsuarioDAO dao = UsuarioDAOImpl.getInstance();
 
 		if(dao.getEstudiante(nick) == null && dao.getEstudianteDni(dni) == null){
-
-			req.getSession().removeAttribute("error");
+		
+			
 
 			if (nick.equals("Admin") && password.equals("UniTarjetAdmin")) {
 				entidad = 0;
@@ -56,19 +57,27 @@ public class CreateEstudianteServlet extends HttpServlet {
 						direccion, banco, universidad);
 				dao.addUsuario(entidad, email, password, nick);
 
-				String msg = "User: " + nick + " Contraseña: " + password;
+				String msg = "Bienvenido a UniTarjeta, Su nombre de usuario es " + nick+", y su contraseña: " + password+", con estos datos podrás acceder al sistema de petición de tarjetas.";
 				dao.sendmail(email, msg);
 
 				if (a == 0) {
+					HttpSession sesion = req.getSession();
+					sesion.setAttribute("error","");
+					
 					resp.sendRedirect("admin.jsp");
 
 				} else {
-
+					HttpSession sesion = req.getSession();
+					sesion.setAttribute("error","");
+					
 					resp.sendRedirect("/");
+					
 
 				}
 			}
 		}else{
+			HttpSession sesion = req.getSession();
+			sesion.setAttribute("error",1);
 			resp.sendRedirect("/welcome");
 		}
 

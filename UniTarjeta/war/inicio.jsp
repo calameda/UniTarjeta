@@ -16,14 +16,15 @@
 	</head>
 	<body>
 	
+		<div id ="otro">
+		</div>
+	
 		<div style="width: 100%;">
-			<div class="line"></div>
 			<div class="topLine">
-				<div style="float: left;" class="headline">Solicitudes</div>
-				<div style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></div>		 
+				<nav style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></nav>		 
 				</div>
 			</div>
-		</div>
+		
 	
 		<div style="clear: both;" />
 		Tiene <c:out value="${fn:length(solicitudes)}" />
@@ -103,7 +104,7 @@
 						<td></td>
 						<td></td>
 						<td><a class="done"
-						href="<c:url value="/doneBanco?id=${solicitud.id}&CVC=cvc&PIN=pin&Cuenta=cuenta&Fecha=fecha"/>">Si</a></td>
+						href="<c:url value="/doneBanco?id=${solicitud.id}"/>">Si</a></td>
 						<td><a class="done"
 						href="<c:url value="/refuseBanco?id=${solicitud.id}" />">No</a></td>
 					</c:if>
@@ -113,7 +114,7 @@
 					
 					
 					<td><a class="done"
-						href="<c:url value="/doneUni?id=${solicitud.id}"/>">Si</a></td>
+						href="<c:url value="/doneEstam?id=${solicitud.id}"/>">Si</a></td>
 					<td><a class="done"
 						href="<c:url value="/refuseEstam?id=${solicitud.id}" />">No</a></td>
 					
