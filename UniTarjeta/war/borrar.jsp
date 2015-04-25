@@ -16,20 +16,19 @@
 	</head>
 	<body>
 	
-		<div id ="otro">
+		<div style="width: 100%;">
+			<div class="line"></div>
+			<div class="topLine">
+				<div style="float: left;" class="headline">Usuarios</div>
+				<div style="float: right;" class="headline"><a href="admin.jsp" style="margin-right: 10px">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>	 
+				</div>
+			</div>
 		</div>
-
+	
 		<div style="clear: both;" />
 		Hay <c:out value="${fn:length(usuarios)}" />
 		usuarios en el sistema.
 	<div class="exteriorList">
-		<div style="width: 100%;">
-			<div class="topLine">
-				<nav style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></nav>		 
-				</div>
-			</div>
-		
-	<div class="exteriorLis">
 		<div id="contenidoList">
 	
 		<table class="flat-table">
@@ -60,3 +59,4 @@
 		
 	</body>
 </html>
+
