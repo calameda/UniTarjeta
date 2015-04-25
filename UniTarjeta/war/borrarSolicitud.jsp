@@ -30,7 +30,7 @@
 		Solicitudes en el sistema.
 		<div class="exteriorLis">
 			<div id="contenidoList">
-		<table>
+		<table class="flat-table">
 			<tr>
 				<th>Estudiante</th>
 				<th>Dni</th>

@@ -28,10 +28,10 @@
 		<div style="clear: both;" />
 		Hay <c:out value="${fn:length(usuarios)}" />
 		usuarios en el sistema.
-	<div class="exteriorLis">
+	<div class="exteriorList">
 		<div id="contenidoList">
 	
-		<table>
+		<table class="flat-table">
 			<tr>
 				<th>Entidad</th>
 				<th>Usuario</th>

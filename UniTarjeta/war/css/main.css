@@ -274,10 +274,33 @@ img {
 }
 
 #contenidoList {
-    width: 280px;
+    width: 590px;
     min-height: 100%;     
     height: auto !important;     
     height: 100%;     
     margin: 0 auto 0px; 
 }
+
+
+.flat-table {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 115%;
+  overflow: auto;
+  width: auto;
+}
+  
+.flat-table th{
+    background-color: #0A8FFB;
+    color: white;
+    font-weight: normal;
+    padding: 10px 20px;
+    text-align: center;
+  }
+.flat-table td{
+    background-color: #3b4148;
+    color: #a3a3a3;
+    padding: 10px 20px;
+  }
+
 
