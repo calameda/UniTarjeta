@@ -210,11 +210,12 @@ width:100x;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     background-color: #0A8FFB;
-    color: #808080;
+    color: #eee;
     font-weight: bold;
     margin-bottom: 2em;
     text-transform: uppercase;
-    width: 230px;
+    width: 280px;
+    height: 40px;
 }
 
 #contenidoRegistro input[type="password"] {
@@ -257,7 +258,8 @@ width:100x;
 }
 #contenidoRegistro form input[type="submit"]:hover {
     background-color: #08589A;
-   width: 230px;
+   width: 280px;
+    height: 40px;
 }
 
 img {
