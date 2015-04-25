@@ -23,7 +23,6 @@
 			<p><a href="registerAdmin.jsp">Registra Administrador</a><span class="registro"></span></p>
 			<p><a href="/listUsuario">Borrar Usuario</a><span class="registro"></span></p>
 			<p><a href="/listSolicitud">Borrar Solicitud</a><span class="registro"></span></p>
-			<p><a href="/listModificar">Modificar</a><span class="registro"></span></p>
 			</c:if>
 			
 		</div>

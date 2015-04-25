@@ -5,10 +5,12 @@ import java.io.IOException;
 
 
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 
@@ -18,22 +20,23 @@ public class CerrarSesionServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException, ServletException {
+		HttpSession sesion = req.getSession();
 		int entidad = (int) req.getSession().getAttribute("x");
 		switch(entidad){
 		case 0: break;
-		case 1: req.getSession().removeAttribute("Estudiante");
+		case 1: sesion.setAttribute("Estudiante","");
 				break;
-		case 2:	req.getSession().removeAttribute("Universidad");
+		case 2:	sesion.setAttribute("Universidad","");
 				break;
-		case 3: req.getSession().removeAttribute("Banco");
+		case 3: sesion.setAttribute("Banco","");
 				break;
-		case 4:	req.getSession().removeAttribute("Estampadora");
+		case 4:	sesion.setAttribute("Estampadora","");
 				break;
 		default: break;		
 	}
 		
-			req.getSession().removeAttribute("entidad");
-			
+			req.getSession().setAttribute("entidad","");
+			sesion.invalidate();
 							
 			resp.sendRedirect("/");
 			

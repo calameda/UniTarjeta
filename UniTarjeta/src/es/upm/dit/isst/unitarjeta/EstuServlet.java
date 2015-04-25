@@ -29,13 +29,43 @@ public class EstuServlet extends HttpServlet {
 	  	boolean b = solicitud.isValidaBanco();
 	  	boolean c = solicitud.isFinished();
 	  	int estado = 0;
+	  	String uni = "nada";
+  		String chip = "nada";
+  		String banco = "nada";
 	  	String fallo = "Fallo";
-	  	if (a == true &&  b == false && c == false) estado =1;
-	  	if (a == true &&  b == true && c == false) estado =2;
-	  	if (a == true &&  b == true && c == true) estado =3;
-	  	if (solicitud.getUniversidad() == fallo) estado =4;
+	  	Long id = solicitud.getId();
+	  	//String user = "user";
+	  	
+	  	if (a == true &&  b == false && c == false){
+	  		estado =1;
+	  		uni = solicitud.getUniversidad();
+	  	}
+	  	if (a == true &&  b == true && c == false){
+	  		estado =2;
+	  		uni = solicitud.getUniversidad();
+	  		chip = "nada";
+	  		banco = solicitud.getBanco();
+	  	}
+	  	if (a == true &&  b == true && c == true){
+	  		estado =3;
+	  		uni = solicitud.getUniversidad();
+	  		banco = solicitud.getBanco();
+	  		chip = "chip";
+	  	}
+	  	if (solicitud.getUniversidad() == fallo){
+	  		estado =4;
+	  		uni = "nada";
+	  		chip = "nada";
+	  		banco = "nada";
+	  		
+	  	}
+	  	
 	  	
 		req.getSession().setAttribute("estado", estado);
+		req.getSession().setAttribute("uni", uni);
+		req.getSession().setAttribute("banco", banco);
+		req.getSession().setAttribute("chip", chip);
+		req.getSession().setAttribute("id", id);
 		RequestDispatcher view = req.getRequestDispatcher("estudiante.jsp");
 		try {
 			view.forward(req, resp);

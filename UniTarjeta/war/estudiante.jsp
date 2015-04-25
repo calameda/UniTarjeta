@@ -15,8 +15,15 @@
 <meta charset="utf-8">
 </head>
 <body>
-<div style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></div>
+<nav style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></nav>
 <div style="clear: both;" />
+
+	<div class="tarjeta">
+				         <img id="usuario" src="user.png" width="80px" height="80px" />
+				         <img id ="chip" src="img/${chip}.png" height="50px" width="50px"/>
+				         <img id ="uni" src="img/${uni}.png"  height="150px" width="130px"/>
+				         <img id ="banco" src="img/${banco}.png" height="80px" width="130px"/>
+	</div>​
 	<p> Tiene una solicitud hecha, espera a que se tramite. Su estado es: </p>
 
 	<c:if test="${estado == 0}">
@@ -24,19 +31,16 @@
 	</c:if>
 	
 	<c:if test="${estado == 1}">
-		<p>La solicitud ha sido transmitada por la universidad y está siendo tramitada por el banco</p>
-	</c:if>
-	
-	<c:if test="${estado == 1}">
-		<p>La solicitud ha sido transmitada por la universidad</p>
+		<p>La solicitud ha sido transmitada por la universidad y está siendo tramitada por el banco.</p>
 	</c:if>
 
 	<c:if test="${estado == 2}">
-		<p>La solicitud ha sido transmitada por el banco y está siendo tramitada por la estampadora </p>
+		<p>La solicitud ha sido transmitada por el banco y está siendo tramitada por la estampadora. </p>
 	</c:if>
 
 	<c:if test="${estado == 3}">
 		<p> Su tarjeta está lista. <p/>
+		<a href="/removeSolicitud?id=${id}"">Pulsa cuando obtenga la tarjeta en mano</a>
 	</c:if>
 	
 	<c:if test="${estado == 4}">

@@ -9,9 +9,15 @@
 <title>Registro</title>
 </head>
 <body>
-	<div class="exterior">
-	<div style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></div>
-	<div style="clear: both;" />
+	<div id ="otro">
+		</div>
+	
+		<div style="width: 100%;">
+			<div class="topLine">
+				<nav style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></nav>		 
+				</div>
+			</div>
+		
 		<div id="contenidoRegistro">
 
 				<form action="/newSolicitud" method="post" accept-charset="utf-8">

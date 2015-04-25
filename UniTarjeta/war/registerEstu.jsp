@@ -15,19 +15,46 @@
 <script type="text/javascript">
 $(function(){
 		
-		function numero(){
-			if($("#nombre").val().length < 2){
-				document.getElementById("nombre").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
-				document.getElementById("nombre").style.outline="0 none";
+		
+		function nick(){
+			if($("#nick").val().length < 2){
+				document.getElementById("nick").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+				document.getElementById("nick").style.outline="0 none";
+				return true;
 			}
-			else if ($("#nombre").val().length > 14){		
-				document.getElementById("nombre").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
-				document.getElementById("nombre").style.outline="0 none";
+			else if ($("#nick").val().length > 14){		
+				document.getElementById("nick").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+				document.getElementById("nick").style.outline="0 none";
+				return true;
 			}
 			else{
-				document.getElementById("nombre").style.boxShadow="";
-				document.getElementById("nombre").style.outline="";
+				document.getElementById("nick").style.boxShadow="";
+				document.getElementById("nick").style.outline="";
+				$('#nickE').each (function(){
+					$('#nickE').html("");
+			});
+				return false;
 	          }
+			
+
+		}
+		
+		function uni(){
+			
+			if ($("#uni").val() == 0){		
+				document.getElementById("uni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+				document.getElementById("uni").style.outline="0 none";
+				return true;
+			}
+			else{
+				document.getElementById("uni").style.boxShadow="";
+				document.getElementById("uni").style.outline="";
+				$('#uniE').each (function(){
+					$('#uniE').html("");
+			});
+				return false;
+	          }
+			
 
 		}
 		
@@ -37,21 +64,51 @@ $(function(){
           	if((/^\d{8}/).test(valor)&& !(/[A-Z]$/).test(valor)){
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
+				return true;
 			}
 			else if( !((/^\d{8}[A-Z]$/).test(valor)) ){
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
+				return true;
 			}
             else if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]) {
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
+				return true;
 
 			}
             else{
 				document.getElementById("dni").style.boxShadow="";
 				document.getElementById("dni").style.outline="";
+				$('#dniE').each (function(){
+					$('#dniE').html("");
+			});
+				return false;
             }
 			
+		}
+		
+		
+		function contraseña(){
+			  var valor = $("#contraseña").val();
+			  var valor2 = $("#rcontraseña").val();
+			  if(valor != valor2){
+				  document.getElementById("rcontraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+				  document.getElementById("rcontraseña").style.outline="0 none";
+				  document.getElementById("contraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
+				  document.getElementById("contraseña").style.outline="0 none";
+				  return true;
+				  }
+			  else{
+				  document.getElementById("rcontraseña").style.boxShadow="";
+				  document.getElementById("rcontraseña").style.outline="";
+				  document.getElementById("contraseña").style.boxShadow="";
+				  document.getElementById("contraseña").style.outline="";
+				  $('#passE').each (function(){
+						$('#passE').html("");
+				});
+				  return false;
+			  }
 		}
 
 		function email(){			
@@ -67,61 +124,69 @@ $(function(){
 				return false;
             }
 		}
-		function contraseña(){
-			  var valor = $("#contraseña").val();
-			  var valor2 = $("#rcontraseña").val();
-			  if(valor != valor2){
-				  document.getElementById("rcontraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
-				  document.getElementById("rcontraseña").style.outline="0 none";
-				  return true;
-				  }
-			  else{
-				  document.getElementById("rcontraseña").style.boxShadow="";
-				  document.getElementById("rcontraseña").style.outline="";
-				  return false;
-			  }
+		
+		function borrar(){
+		 $('#nickE').each (function(){
+				$('#nickE').html("");
+		});
+		 $('#correoE').each (function(){
+				$('#correoE').html("");
+		});
+		 $('#dniE').each (function(){
+				$('#dniE').html("");
+		});
+		 $('#uniE').each (function(){
+				$('#uniE').html("");
+		});
+		 $('#passE').each (function(){
+				$('#passE').html("");
+		});
 		}
-		  
 	
-
-		$("#nombre").blur(numero);		
+		function validar(){
+			
+			
+			if (nick()){
+				$("#enviar").attr("disabled",true);
+				$('#nickE').html("El nick debe de ser de más de 2 caracteres y menos de 14.");
+			 	
+			}
+			else if (dni()){
+				 $("#enviar").attr("disabled",true);
+			     $("#dniE").html("Dni debe ser con la letra mayúsula. Ej:8349739D.");
+				
+			}
+			
+			else if (email()){
+				$("#enviar").attr("disabled",true);
+				$("#correoE").html("El email no es una dirrección de correo válida.");
+				
+			}
+			else if (contraseña()){
+				$("#enviar").attr("disabled",true);
+			  	$("#passE").html("No coinciden las contraseñas.");
+			  	
+			}
+			else{
+			 $("#enviar").removeAttr("disabled");
+			}
+		}
+		
+		$("#nick").blur(nick);
+		$("#nick").blur(validar);
 		$("#dni").blur(dni);
+		$("#dni").blur(validar);
 		$("#email").blur(email);
+		$("#email").blur(validar);
 		$("#rcontraseña").blur(contraseña);
+		$("#rcontraseña").blur(validar);
+		
+		
+		
  });	
-function email(){			
-	var valor = $("#email").val();			
-	if(!((/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/).test(valor))){
-		document.getElementById("email").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
-		document.getElementById("email").style.outline="0 none";
-		return true;
-	}
-    else{
-		document.getElementById("email").style.boxShadow="";
-		document.getElementById("email").style.outline="";
-		return false;
-    }
-}
-function contraseña(){
-	  var valor = $("#contraseña").val();
-	  var valor2 = $("#rcontraseña").val();
-	  if(valor != valor2){
-		  document.getElementById("rcontraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
-		  document.getElementById("rcontraseña").style.outline="0 none";
-		  return true;
-		  }
-	  else{
-		  document.getElementById("rcontraseña").style.boxShadow="";
-		  document.getElementById("rcontraseña").style.outline="";
-		  return false;
-	  }
-}
+
  
-function validar(){
-	 if(!this.contraseña() && !this.email() ){return true;}
-	 document.getElementById("pass").innerHTML += "No coinciden las contraseñas";
-	 return false;
-}	
+	
 		 </script>
 </head>
 <body>
@@ -134,8 +199,7 @@ function validar(){
 	</c:if>
 	<c:if test="${x == 1}">
 		<div style="float: right;" class="headline">
-			<a href="login.jsp">Atrás</a><a href="/cerrarSesion">Cerrar
-				sesión</a>
+			<a href="login.jsp">Atrás</a>
 		</div>
 	</c:if>
 	<div style="clear: both;" />
@@ -145,8 +209,7 @@ function validar(){
 		<div id="contenidoRegistro">
 
 
-			<form action="/newEstu" method="post" accept-charset="utf-8"
-				onSubmit="return validar()">
+			<form action="/newEstu" method="post" accept-charset="utf-8">
 
 				<table align="center">
 
@@ -160,11 +223,11 @@ function validar(){
 
 
 
-						<td><label for="nick" class="labelLetra">Nick</label> <input
-							class="textoLetra" type="text" name="nick"
-							value="Nombre de usuario"
-							onBlur="if(this.value == '') this.value = 'Nombre de usuario'"
-							onFocus="if(this.value == 'Nombre de usuario') this.value = ''"
+						<td><label for="apellido" id="apellido"  class="labelLetra">Apellidos</label> <input
+							class="textoLetra" type="text" name="apellido"
+							value="Apellidos"
+							onBlur="if(this.value == '') this.value = 'Apellidos'"
+							onFocus="if(this.value == 'Apellidos') this.value = ''"
 							required></td>
 						<td>
 							<table>
@@ -175,11 +238,11 @@ function validar(){
 										onBlur="if(this.value == '') this.value = 'Nombre'"
 										onFocus="if(this.value == 'Nombre') this.value = ''" required>
 									</td>
-									<td><label for="apellido" class="labelNombre">Apellidos</label>
-										<input class="textoNombre" type="text" name="apellido"
-										value="Apellidos" size="5"
-										onBlur="if(this.value == '') this.value = 'Apellidos'"
-										onFocus="if(this.value == 'Apellidos') this.value = ''"
+									<td><label for="nick" class="labelNombre">Nick</label>
+										<input class="textoNombre" type="text" name="nick" id="nick"
+										value="Nick" size="5"
+										onBlur="if(this.value == '') this.value = 'Nick'"
+										onFocus="if(this.value == 'Nick') this.value = ''"
 										required></td>
 								</tr>
 							</table>
@@ -230,7 +293,7 @@ function validar(){
 
 						<td><label for="universidad" class="labelLetra">Universidad</label><select
 							name="universidad" class="textoLetra" name="universidad"
-							id="nombre">
+							id="uni">
 								<option selected value="0">Elige una Universidad</option>
 								<c:forEach items="${universidades}" var="uni">
 									<option value="${uni.nick}"><c:out
@@ -268,9 +331,13 @@ function validar(){
 					<tr>
 
 						<td colspan="2" align="center" class="sesion"><input
-							type="submit" value="Create" /></td>
+							type="submit" value="Create" id="enviar" /></td>
 					</tr>
-					<tr id="pass"></tr>
+					<p id="nickE"></p>
+					<p id="correoE"></p>
+					<p id="dniE"></p>
+					<p id="uniE"></p>
+					<p id="passE"></p>
 				</table>
 
 			</form>

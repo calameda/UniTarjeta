@@ -44,5 +44,7 @@ public interface UsuarioDAO {
 	public List<Estudiante> listEstudiantes();
 	public List<Banco> listBancos();
 	public List<Estampadora> listEstampadoras();
+	public Usuario getUsuarioEmail(String email);
+	
 	
 }
