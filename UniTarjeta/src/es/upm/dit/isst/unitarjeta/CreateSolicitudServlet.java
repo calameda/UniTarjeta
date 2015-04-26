@@ -28,7 +28,7 @@ public class CreateSolicitudServlet extends HttpServlet {
 		Estudiante estudiante = (Estudiante) sesion.getAttribute("Estudiante");
 		//req.getSession().setAttribute("atras", 0); Para evitar ir atras
 		SolicitudDao.add(estudiante);
-		resp.sendRedirect("/");
+		resp.sendRedirect("/inicioEstu");
 	}
 
 	

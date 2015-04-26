@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAO;
 import es.upm.dit.isst.unitarjeta.dao.UsuarioDAOImpl;
+import es.upm.dit.isst.unitarjeta.model.Estudiante;
 
 public class CreateEstudianteServlet extends HttpServlet {
 
@@ -69,15 +70,21 @@ public class CreateEstudianteServlet extends HttpServlet {
 				} else {
 					HttpSession sesion = req.getSession();
 					sesion.setAttribute("error","");
-					
-					resp.sendRedirect("/");
+					sesion.setAttribute("x", entidad);
+					sesion.setAttribute("Estudiante", new Estudiante(nick, nombre, dni,direccion, banco, universidad));
+					resp.sendRedirect("inicioEstu.jsp");
 					
 
 				}
 			}
 		}else{
 			HttpSession sesion = req.getSession();
-			sesion.setAttribute("error",1);
+			if(dao.getEstudiante(nick) != null)
+				sesion.setAttribute("error",1);
+			if(dao.getEstudianteDni(dni) != null)
+				sesion.setAttribute("error",2);
+			if(dao.getEstudiante(nick) != null && dao.getEstudianteDni(dni) != null)
+				sesion.setAttribute("error",3);
 			resp.sendRedirect("/welcome");
 		}
 

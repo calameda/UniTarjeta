@@ -24,7 +24,7 @@
 							
 							<p class="sesion">
 								<input type="submit"
-									value="Create" />
+									value="Pedir una tarjeta" />
 							</p>
 						
 

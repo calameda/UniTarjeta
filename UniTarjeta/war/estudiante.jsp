@@ -27,7 +27,7 @@
 	<p> Tiene una solicitud hecha, espera a que se tramite. Su estado es: </p>
 
 	<c:if test="${estado == 0}">
-		<p>La solicitud está siendo transmitada por la universidad </p>
+		<p>La solicitud está siendo transmitada por la universidad. </p>
 	</c:if>
 	
 	<c:if test="${estado == 1}">
@@ -44,7 +44,7 @@
 	</c:if>
 	
 	<c:if test="${estado == 4}">
-		<p>La solicitud no ha sido tranmitada por la universidad, ha habido algún problema, contacta con nosotros a través de unitarjetainfo@gmail.com e intentaremos solucionarlo. Disculpe las molestias. </p>
+		<p>La solicitud no ha sido tramitada por la universidad, ha habido algún problema, contacta con nosotros a través de unitarjetainfo@gmail.com e intentaremos solucionarlo. Disculpe las molestias. </p>
 	</c:if>
 	
 

@@ -20,19 +20,19 @@ $(function(){
 			if($("#nick").val().length < 2){
 				document.getElementById("nick").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("nick").style.outline="0 none";
+				$('#nickE').each (function(){$('#nickE').html("");});
 				return true;
 			}
 			else if ($("#nick").val().length > 14){		
 				document.getElementById("nick").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("nick").style.outline="0 none";
+				$('#nickE').each (function(){$('#nickE').html("");});
 				return true;
 			}
 			else{
 				document.getElementById("nick").style.boxShadow="";
 				document.getElementById("nick").style.outline="";
-				$('#nickE').each (function(){
-					$('#nickE').html("");
-			});
+				$('#nickE').each (function(){$('#nickE').html("");});
 				return false;
 	          }
 			
@@ -44,18 +44,16 @@ $(function(){
 			if ($("#uni").val() == 0){		
 				document.getElementById("uni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("uni").style.outline="0 none";
+				$('#dniE').each (function(){$('#dniE').html("");});
 				return true;
 			}
 			else{
 				document.getElementById("uni").style.boxShadow="";
 				document.getElementById("uni").style.outline="";
-				$('#uniE').each (function(){
-					$('#uniE').html("");
-			});
+				$('#uniE').each (function(){$('#uniE').html("");});
+				$('#dniE').each (function(){$('#dniE').html("");});
 				return false;
 	          }
-			
-
 		}
 		
 		function dni(){
@@ -64,25 +62,26 @@ $(function(){
           	if((/^\d{8}/).test(valor)&& !(/[A-Z]$/).test(valor)){
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
+				$('#dniE').each (function(){$('#dniE').html("");});
 				return true;
 			}
 			else if( !((/^\d{8}[A-Z]$/).test(valor)) ){
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
+				$('#dniE').each (function(){$('#dniE').html("");});
 				return true;
 			}
             else if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]) {
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
+				$('#dniE').each (function(){$('#dniE').html("");});
 				return true;
 
 			}
             else{
 				document.getElementById("dni").style.boxShadow="";
 				document.getElementById("dni").style.outline="";
-				$('#dniE').each (function(){
-					$('#dniE').html("");
-			});
+				$('#dniE').each (function(){$('#dniE').html("");});
 				return false;
             }
 			
@@ -97,6 +96,7 @@ $(function(){
 				  document.getElementById("rcontraseña").style.outline="0 none";
 				  document.getElementById("contraseña").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				  document.getElementById("contraseña").style.outline="0 none";
+				  $('#passE').each (function(){$('#passE').html("");});
 				  return true;
 				  }
 			  else{
@@ -104,9 +104,7 @@ $(function(){
 				  document.getElementById("rcontraseña").style.outline="";
 				  document.getElementById("contraseña").style.boxShadow="";
 				  document.getElementById("contraseña").style.outline="";
-				  $('#passE').each (function(){
-						$('#passE').html("");
-				});
+				  $('#passE').each (function(){$('#passE').html("");});
 				  return false;
 			  }
 		}
@@ -116,33 +114,18 @@ $(function(){
 			if(!((/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/).test(valor))){
 				document.getElementById("email").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("email").style.outline="0 none";
+				$('#correoE').each (function(){$('#correoE').html("");});
 				return true;
 			}
             else{
 				document.getElementById("email").style.boxShadow="";
 				document.getElementById("email").style.outline="";
+				$('#correoE').each (function(){$('#correoE').html("");});
 				return false;
             }
 		}
 		
-		function borrar(){
-		 $('#nickE').each (function(){
-				$('#nickE').html("");
-		});
-		 $('#correoE').each (function(){
-				$('#correoE').html("");
-		});
-		 $('#dniE').each (function(){
-				$('#dniE').html("");
-		});
-		 $('#uniE').each (function(){
-				$('#uniE').html("");
-		});
-		 $('#passE').each (function(){
-				$('#passE').html("");
-		});
-		}
-	
+
 		function validar(){
 			
 			
@@ -160,26 +143,25 @@ $(function(){
 			else if (email()){
 				$("#enviar").attr("disabled",true);
 				$("#correoE").html("El email no es una dirrección de correo válida.");
-				
 			}
 			else if (contraseña()){
 				$("#enviar").attr("disabled",true);
 			  	$("#passE").html("No coinciden las contraseñas.");
-			  	
 			}
 			else{
 			 $("#enviar").removeAttr("disabled");
 			}
 		}
 		
-		$("#nick").blur(nick);
-		$("#nick").blur(validar);
-		$("#dni").blur(dni);
-		$("#dni").blur(validar);
-		$("#email").blur(email);
-		$("#email").blur(validar);
-		$("#rcontraseña").blur(contraseña);
-		$("#rcontraseña").blur(validar);
+		$("#nick").keyup(nick);
+		$("#nick").keyup(validar);
+		$("#dni").keyup(dni);
+		$("#dni").keyup(validar);
+		$("#email").keyup(email);
+		$("#email").keyup(validar);
+		$("#rcontraseña").keyup(contraseña);
+		$("#rcontraseña").keyup(validar);
+		$("#enviar").on('click',validar);
 		
 		
 		
@@ -206,6 +188,7 @@ $(function(){
 
 
 	<div class="exteriorReg">
+	
 		<div id="contenidoRegistro">
 
 
@@ -214,10 +197,7 @@ $(function(){
 				<table align="center">
 
 
-					<c:if test="${error == 1}">
-						<label for="ERROR" class="labelLetra">Nick o dni ya en
-							uso.</label>
-					</c:if>
+					
 
 					<tr>
 
@@ -333,15 +313,29 @@ $(function(){
 						<td colspan="2" align="center" class="sesion"><input
 							type="submit" value="Create" id="enviar" /></td>
 					</tr>
-					<p id="nickE"></p>
-					<p id="correoE"></p>
-					<p id="dniE"></p>
-					<p id="uniE"></p>
-					<p id="passE"></p>
+					
 				</table>
-
 			</form>
 		</div>
+					<c:if test="${error == 1}">
+						<p for="ERROR" class="contacta">Nick ya en
+							uso.</p>
+					</c:if>
+					<c:if test="${error == 2}">
+						<p for="ERROR" class="contacta">Dni ya en
+							uso.</p>
+					</c:if>
+					<c:if test="${error == 3}">
+						<p for="ERROR" class="contacta">Nick y dni ya en
+							uso.</p>
+					</c:if>
+					<p class="contacta" id="nickE"></p>
+					<p class="contacta" id="error"></p>
+					<p class="contacta" id="correoE"></p>
+					<p class="contacta" id="dniE"></p>
+					<p class="contacta" id="uniE"></p>
+					<p class="contacta" id="passE"></p>
+				
 	</div>
 </body>
 </html>

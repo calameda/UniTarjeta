@@ -35,9 +35,9 @@ public class RemoveUsuarioServlet extends HttpServlet {
     		dao.removeAdmin(id0);
     		break;
     case 1: long id1 = dao.getEstudiante(nick).getId();
+    		SolicitudDAO daoS = SolicitudDAOImpl.getInstance();
+    		Solicitud solicitud = daoS.getSolicitud(dao.getEstudiante(nick).getDni());
 			dao.removeEstudiante(id1);
-			SolicitudDAO daoS = SolicitudDAOImpl.getInstance();
-			Solicitud solicitud = daoS.getSolicitud(nick);
 			if (solicitud != null){
 			long idS = solicitud.getId();
 			daoS.remove(idS);
