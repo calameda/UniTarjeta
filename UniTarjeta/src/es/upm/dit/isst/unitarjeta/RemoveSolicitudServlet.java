@@ -19,12 +19,20 @@ public class RemoveSolicitudServlet extends HttpServlet {
 	Long id = Long.parseLong(idS);
     SolicitudDAO dao = SolicitudDAOImpl.getInstance();
     dao.remove(id);
-    try{
+    
+    if(req.getAttribute("estado") != null){
+    	if((String)req.getSession().getAttribute("estado") == "3"){
+    		req.getSession().setAttribute("estado", "");
+    		resp.sendRedirect("/");
+    	}
+    }
+    
+    /*try{
     int estado = (int) req.getSession().getAttribute("estado");
     if (estado == 3)resp.sendRedirect("/"); 
     }catch(ClassCastException e){
     resp.sendRedirect("/listSolicitud");
-    }
+    }*/
     resp.sendRedirect("/listSolicitud");
   }
 } 

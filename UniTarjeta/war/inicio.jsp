@@ -25,8 +25,7 @@
 		
 	
 		<div style="clear: both;" />
-		Tiene <c:out value="${fn:length(solicitudes)}" />
-		Solicitudes pendientes.
+
 		<div class="exteriorLis">
 			<div id="contenidoList">
 		<table class="flat-table">

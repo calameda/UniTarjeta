@@ -72,7 +72,7 @@ p {
     line-height: 1.5em;
 }
 
-#contacta {
+.contacta {
     text-align: center;
     clear: both;
     position: relative;

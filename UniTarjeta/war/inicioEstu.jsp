@@ -16,6 +16,8 @@
 			<a href="/cerrarSesion"><button type="button" class="btn">Cerrar sesión</button></a>
 		</div>
 		
+		
+		<div id="contenido" style="padding-top: 100px">
 		<div id="contenidoRegistro">
 
 				<form action="/newSolicitud" method="post" accept-charset="utf-8">
@@ -27,6 +29,7 @@
 						
 
 				</form>
+		</div>
 		</div>
 	</div>
 </body>

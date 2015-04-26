@@ -21,12 +21,14 @@ $(function(){
 				document.getElementById("nick").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("nick").style.outline="0 none";
 				$('#nickE').each (function(){$('#nickE').html("");});
+				$('#nickE').html("El nick debe de ser de más de 2 caracteres y menos de 14.");
 				return true;
 			}
 			else if ($("#nick").val().length > 14){		
 				document.getElementById("nick").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("nick").style.outline="0 none";
 				$('#nickE').each (function(){$('#nickE').html("");});
+				$('#nickE').html("El nick debe de ser de más de 2 caracteres y menos de 14.");
 				return true;
 			}
 			else{
@@ -63,18 +65,21 @@ $(function(){
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
 				$('#dniE').each (function(){$('#dniE').html("");});
+				$("#dniE").html("La letra del DNI es incorrecta. Recuerde que debe estar en mayúscula.");
 				return true;
 			}
 			else if( !((/^\d{8}[A-Z]$/).test(valor)) ){
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
 				$('#dniE').each (function(){$('#dniE').html("");});
+				$("#dniE").html("El valor del DNI es incorrecto.");
 				return true;
 			}
             else if(valor.charAt(8) != letras[(valor.substring(0, 8))%23]) {
 				document.getElementById("dni").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("dni").style.outline="0 none";
 				$('#dniE').each (function(){$('#dniE').html("");});
+				$("#dniE").html("El DNI es incorrecto.");
 				return true;
 
 			}
@@ -115,6 +120,7 @@ $(function(){
 				document.getElementById("email").style.boxShadow="0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6)";
 				document.getElementById("email").style.outline="0 none";
 				$('#correoE').each (function(){$('#correoE').html("");});
+				$("#correoE").html("El email no es una dirección de correo válida.");
 				return true;
 			}
             else{
@@ -136,13 +142,13 @@ $(function(){
 			}
 			else if (dni()){
 				 $("#enviar").attr("disabled",true);
-			     $("#dniE").html("Dni debe ser con la letra mayúsula. Ej:8349739D.");
+			     $("#dniE").html("El DNI es incorrecto. Ej:8349739D.");
 				
 			}
 			
 			else if (email()){
 				$("#enviar").attr("disabled",true);
-				$("#correoE").html("El email no es una dirrección de correo válida.");
+				$("#correoE").html("El email no es una dirección de correo válida.");
 			}
 			else if (contraseña()){
 				$("#enviar").attr("disabled",true);
@@ -154,13 +160,13 @@ $(function(){
 		}
 		
 		$("#nick").keyup(nick);
-		$("#nick").keyup(validar);
+		//$("#nick").keyup(validar);
 		$("#dni").keyup(dni);
-		$("#dni").keyup(validar);
+		//$("#dni").keyup(validar);
 		$("#email").keyup(email);
-		$("#email").keyup(validar);
+		//$("#email").keyup(validar);
 		$("#rcontraseña").keyup(contraseña);
-		$("#rcontraseña").keyup(validar);
+		//$("#rcontraseña").keyup(validar);
 		$("#enviar").on('click',validar);
 		
 		
@@ -319,25 +325,28 @@ $(function(){
 				</table>
 			</form>
 		</div>
-					<c:if test="${error == 1}">
-						<p for="ERROR" class="contacta">Nick ya en
+		
+		<div class="contacta">
+			<p><c:if test="${error == 1}">
+						<p for="ERROR">Nick ya en
 							uso.</p>
 					</c:if>
 					<c:if test="${error == 2}">
-						<p for="ERROR" class="contacta">Dni ya en
+						<p for="ERROR">Dni ya en
 							uso.</p>
 					</c:if>
 					<c:if test="${error == 3}">
-						<p for="ERROR" class="contacta">Nick y dni ya en
+						<p for="ERROR">Nick y dni ya en
 							uso.</p>
 					</c:if>
-					<p class="contacta" id="nickE"></p>
-					<p class="contacta" id="error"></p>
-					<p class="contacta" id="correoE"></p>
-					<p class="contacta" id="dniE"></p>
-					<p class="contacta" id="uniE"></p>
-					<p class="contacta" id="passE"></p>
-				
+					<p id="error"></p>
+					<p id="nickE"></p>
+					<p id="correoE"></p>
+					<p id="dniE"></p>
+					<p id="uniE"></p>
+					<p id="passE"></p></p>
+		</div>
+		
 	</div>
 </body>
 </html>
