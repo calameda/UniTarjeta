@@ -19,11 +19,9 @@
 		<div id ="otro">
 		</div>
 	
-		<div style="width: 100%;">
-			<div class="topLine">
-				<nav style="float: right;" class="headline"><a href="/cerrarSesion">Cerrar sesión</a></nav>		 
-				</div>
-			</div>
+		<div style="float: right;" class="headline">
+			<a href="/cerrarSesion"><button type="button" class="btn">Cerrar sesión</button></a>
+		</div>
 		
 	
 		<div style="clear: both;" />
@@ -31,7 +29,7 @@
 		Solicitudes pendientes.
 		<div class="exteriorLis">
 			<div id="contenidoList">
-		<table>
+		<table class="flat-table">
 			<tr>
 				<th>Solicitudes</th>
 				<th>DNI</th>

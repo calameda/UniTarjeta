@@ -175,13 +175,15 @@ $(function(){
 	</ul>
 	<c:if test="${x == 0}">
 		<div style="float: right;" class="headline">
-			<a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar
-				sesión</a>
+			<a href="admin.jsp"><button type="button" class="btn">Atrás</button></a>
+			<a href="/cerrarSesion"><button type="button" class="btn">Cerrar sesión</button></a>
 		</div>
 	</c:if>
 	<c:if test="${x == 1}">
 		<div style="float: right;" class="headline">
-			<a href="login.jsp">Atrás</a>
+			<a href="login.jsp">
+				<button type="button" class="btn">Atrás</button>
+			</a>
 		</div>
 	</c:if>
 	<div style="clear: both;" />

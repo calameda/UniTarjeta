@@ -11,10 +11,10 @@
 <body>
 	
 	<div class="exterior">
+		<span><img class="logo" src="logo_unitarjeta.png"></span>
 		<div id="contenido">
 
-			<form action="/login" method="get" accept-charset="utf-8">
-					
+			<form action="/login" method="get" accept-charset="utf-8">				
 						<p>
 							<span class="username"><img src="user.png"></span>
 							<input type="text" name="nick" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required>

@@ -25,8 +25,29 @@ body {
     outline: 0 none;
 }
 
-#test{
+.logo{
+	padding: 20px
+}
 
+.btn {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #0A8FFB;
+    color: #eee;
+    font-weight: bold;
+    font-size: 12px;
+   	margin: 10px;
+   	margin-left: -5px;
+  	padding: 7px;
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    border-color: transparent;
+	text-align: center;
+}
+
+.btn:hover {
+	background-color: #08589A;
 }
 
 a {
@@ -105,9 +126,10 @@ ul.menuVert1 li:hover {
 /* ---------- contenido ---------- */
 
 .exterior{
-    margin: 10% auto;
+    margin: 8% auto;
     padding: 1em;
     width: 768px;
+    text-align: center;
 	
 }
 
@@ -215,7 +237,13 @@ width:100x;
     font-weight: bold;
     margin-bottom: 2em;
     text-transform: uppercase;
-    width: 280px;
+    width: 238px;
+    height: 40px;
+}
+
+#contenidoRegistro form input[type="submit"]:hover {
+    background-color: #08589A;
+	width: 238px;;
     height: 40px;
 }
 
@@ -257,11 +285,7 @@ width:100x;
     width: 100px;
     height: 40px;
 }
-#contenidoRegistro form input[type="submit"]:hover {
-    background-color: #08589A;
-   width: 280px;
-    height: 40px;
-}
+
 
 img {
     margin-top: 9px;
@@ -277,11 +301,10 @@ img {
 }
 
 #contenidoList {
-    width: 590px;
     min-height: 100%;     
     height: auto !important;     
     height: 100%;     
-    margin: 0 auto 0px; 
+    margin: 67px auto 0px; 
 }
 
 
@@ -290,7 +313,7 @@ img {
   -webkit-font-smoothing: antialiased;
   font-size: 115%;
   overflow: auto;
-  width: auto;
+  margin: 0 auto;
 }
   
 .flat-table th{

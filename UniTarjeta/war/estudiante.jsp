@@ -27,15 +27,15 @@
 	<p> Tiene una solicitud hecha, espera a que se tramite. Su estado es: </p>
 
 	<c:if test="${estado == 0}">
-		<p>La solicitud está siendo transmitada por la universidad. </p>
+		<p>La solicitud está siendo tramitada por la universidad. </p>
 	</c:if>
 	
 	<c:if test="${estado == 1}">
-		<p>La solicitud ha sido transmitada por la universidad y está siendo tramitada por el banco.</p>
+		<p>La solicitud ha sido tramitada por la universidad y está siendo tramitada por el banco.</p>
 	</c:if>
 
 	<c:if test="${estado == 2}">
-		<p>La solicitud ha sido transmitada por el banco y está siendo tramitada por la estampadora. </p>
+		<p>La solicitud ha sido tramitada por el banco y está siendo tramitada por la estampadora. </p>
 	</c:if>
 
 	<c:if test="${estado == 3}">

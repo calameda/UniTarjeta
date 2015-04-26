@@ -138,7 +138,10 @@ $(function(){
 </script>
 </head>
 <body>
-	<div style="float: right;" class="headline"><a href="admin.jsp">Atrás</a><a href="/cerrarSesion">Cerrar sesión</a></div>
+	<div style="float: right;" class="headline">
+		<a href="admin.jsp"><button type="button" class="btn">Atrás</button></a>
+		<a href="/cerrarSesion"><button type="button" class="btn">Cerrar sesión</button></a>
+	</div>
 	<div style="clear: both;" />
 	<div class="exteriorReg">
 		
