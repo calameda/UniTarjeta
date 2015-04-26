@@ -36,9 +36,10 @@
 			</form>
 
 			<p>¿Quieres una tarjeta universitaria?<a href="/welcome">Registrate</a><span class="registro"></span></p>
+			
 		</div>
 	</div>
-	<div class="contacta">
+	<div id="contacta">
 		<p> Si eres una universidad y quieres este servicio, ponte en contacto con nosotros enviandonos un correo a unitarjetainfo@gmail.com o llama al 790 901 910.</p>
 	</div>
 	
