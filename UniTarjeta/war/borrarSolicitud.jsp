@@ -20,9 +20,10 @@
 			<a href="admin.jsp"><button type="button" class="btn">Atrás</button></a>
 			<a href="/cerrarSesion"><button type="button" class="btn">Cerrar sesión</button></a>
 		</div>
+		
+	<div class="exteriorList">
+		<div id="contenidoList">
 	
-		<div class="exteriorLis">
-			<div id="contenidoList">
 		<table class="flat-table">
 			<tr>
 				<th>Estudiante</th>
